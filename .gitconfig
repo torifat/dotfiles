@@ -1,0 +1,29 @@
+[alias]
+	st = status -sb
+	co = checkout
+	ci = commit
+	shipit = "git pull && git push && git checkout master && git pull && git merge develop --log && git push && git checkout develop"
+[user]
+	email = to.rifat@gmail.com
+	name = Rifat Nabi
+[core]
+	excludesfile = ~/.gitignore
+	ignorecase = false
+[color]
+	ui = auto
+[push]
+	default = simple
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+	keepBackup = false
+[diff]
+	tool = Kaleidoscope
