@@ -1,0 +1,16 @@
+# Flush output immediately, even when piped
+--flush
+
+# Force color and header, even in less -R.
+--color
+--color-match=red
+--group
+
+### Directories to ignore
+
+# IDEA IDEs
+# http://jetbrains.com/
+--ignore-directory=is:.idea
+
+# Node modules created by npm
+--ignore-directory=is:node_modules

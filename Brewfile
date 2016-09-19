@@ -12,6 +12,7 @@ brew 'findutils', args: ['with-default-names']
 brew 'gnu-sed', args: ['with-default-names']
 brew 'wget', args: ['with-iri']
 brew 'tmux'
+brew 'n'
 
 # Install more recent versions of some macOS tools.
 brew 'vim', args: ['override-system-vi']
@@ -25,11 +26,12 @@ brew 'zplug' #, args: ['with-zsh']
 
 # Install other useful binaries.
 brew 'ack'
-brew 'dark-mode'
 brew 'git'
-brew 'imagemagick', args: ['with-webp']
+brew 'stow'
 brew 'tree'
+brew 'dark-mode'
 brew 'youtube-dl'
+brew 'imagemagick', args: ['with-webp']
 
 # GUI Apps
 cask 'iterm2'

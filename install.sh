@@ -24,12 +24,8 @@ if ! fgrep -q $(command -v zsh) /etc/shells; then
   chsh -s $(command -v zsh)
 fi;
 
-ln -sf $BASE/.zshenv \
-  $BASE/.zshrc \
-  $BASE/.zsh \
-  $BASE/.ackrc \
-  $BASE/.gitignore \
-  $BASE/.gitconfig \
-  $HOME
+stow -v misc zsh
+
+n latest
 
 apm install --production false --packages-file Atomfile

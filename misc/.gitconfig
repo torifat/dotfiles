@@ -7,7 +7,7 @@
 	email = to.rifat@gmail.com
 	name = Rifat Nabi
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.gitexcludes
 	ignorecase = false
 [color]
 	ui = auto
