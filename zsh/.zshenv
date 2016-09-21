@@ -1,3 +1,6 @@
+# When GLOBAL_RCS is unset, /etc/zprofile, /etc/zshrc, /etc/zlogin and /etc/zlogout will not be sourced.
+setopt no_global_rcs
+
 # LANGUAGE must be set by en_US
 export LANGUAGE="en_US.UTF-8"
 export LANG="${LANGUAGE}"
@@ -34,6 +37,6 @@ export ZPLUG_HOME=/usr/local/opt/zplug
 export ZPLUG_LOADFILE="$HOME/.zsh/zplug.zsh"
 
 # Add coreutils to PATH
-export PATH="/usr/local/bin:./node_modules/.bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$PATH"
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"

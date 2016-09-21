@@ -1,3 +1,9 @@
-alias ll='ls -l'
-alias la='ls -la'
+alias l='ls -lh'
+alias ll='ls -la'
+
+alias a='atom .'
 alias b='cd ~/Developments/Backpack'
+alias d='cd ~/Developments/'
+alias o='open .'
+
+alias cask='brew cask'

@@ -38,12 +38,12 @@ brew 'hub'
 brew 'watchman'
 brew 'wifi-password'
 brew 'axel'
-# brew 'flyway'
 brew 'youtube-dl'
 brew 'fortune'
 brew 'mtr'
 brew 'tig'
 brew 'pv'
+brew 'ssh-copy-id'
 
 # GUI Apps
 # cask 'slack'
@@ -70,6 +70,7 @@ cask 'skype'
 cask 'utorrent'
 cask 'ngrok'
 cask 'java'
+brew 'flyway' # depends on Java
 
 # Non-essential Apps
 cask 'airserver'

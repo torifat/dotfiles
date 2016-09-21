@@ -1,7 +1,6 @@
 # http://askubuntu.com/questions/44542/what-is-umask-and-how-does-it-work
 umask 022
 limit coredumpsize 0
-bindkey -d
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -12,21 +11,23 @@ autoload -Uz colors && colors
 autoload -Uz compinit && compinit -u
 autoload -Uz is-at-least
 
-setopt no_global_rcs
+# bind
+bindkey -d
+bindkey "\e[H" beginning-of-line
+bindkey "\e[F" end-of-line
+bindkey "\e\e[C" forward-word
+bindkey "\e\e[D" backward-word
+
 # automatically enter directories without cd
 setopt auto_cd
 
 ## History
 setopt append_history # Allow multiple terminal sessions to all append to one zsh command history
-setopt extended_history # save timestamp of command and duration
-setopt inc_append_history # Add comamnds as they are typed, don't wait until shell exit
 setopt hist_expire_dups_first # when trimming history, lose oldest duplicates first
 setopt hist_ignore_dups # Do not write events to history that are duplicates of previous events
 setopt hist_ignore_space # remove command line from history list when first character on the line is a space
 setopt hist_find_no_dups # When searching history don't display results already cycled through twice
 setopt hist_reduce_blanks # Remove extra blanks from each command line being added to history
-setopt hist_verify # don't execute, just expand history
-setopt share_history # imports new commands and appends typed commands to history
 
 # Exit if called from vim
 [[ -n $VIMRUNTIME ]] && return
