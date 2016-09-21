@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
-trap 'exit' ERR
+# Cache the root password.
+sudo -v
 
 cd $(dirname $BASH_SOURCE)
 BASE=$(pwd)
@@ -16,7 +17,7 @@ if [ $(uname -s) = 'Darwin' ]; then
 fi
 
 echo "📥  Installing Homebrew Packages..."
-brew bundle
+brew bundle --verbose
 
 # Switch to using brew-installed ZSH as default shell
 if ! fgrep -q $(command -v zsh) /etc/shells; then
@@ -29,3 +30,5 @@ stow -v misc zsh
 n latest
 
 apm install --production false --packages-file Atomfile
+
+echo "😀  Happy Hacking"

@@ -2,7 +2,6 @@
 	st = status -sb
 	co = checkout
 	ci = commit
-	shipit = "git pull && git push && git checkout master && git pull && git merge develop --log && git push && git checkout develop"
 [user]
 	email = to.rifat@gmail.com
 	name = Rifat Nabi
