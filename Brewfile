@@ -23,6 +23,7 @@ brew 'openssh'
 # ZSH related stuff
 brew 'zsh'
 brew 'zplug' #, args: ['with-zsh']
+brew 'zsh-completions'
 
 # Install other useful binaries.
 brew 'ack'

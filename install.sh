@@ -31,4 +31,7 @@ n latest
 
 apm install --production false --packages-file Atomfile
 
+# Fix autocomp permission
+sudo chmod -R 755 /usr/local/share/zsh
+
 echo "😀  Happy Hacking"
