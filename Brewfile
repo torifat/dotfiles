@@ -90,6 +90,7 @@ mas 'DaisyDisk', id: 411643860
 mas 'Magnet', id: 441258766
 # mas 'Divvy', id: 413857545
 # mas 'BetterSnapTool', id: 417375580
+# cask 'spectacle' # Free alternative
 
 mas 'Keynote', id: 409183694
 mas 'Pages', id: 409201541

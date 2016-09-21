@@ -16,7 +16,7 @@ setopt no_global_rcs
 # automatically enter directories without cd
 setopt auto_cd
 
-# ===== History
+## History
 setopt append_history # Allow multiple terminal sessions to all append to one zsh command history
 setopt extended_history # save timestamp of command and duration
 setopt inc_append_history # Add comamnds as they are typed, don't wait until shell exit

@@ -26,3 +26,5 @@
 	keepBackup = false
 [diff]
 	tool = Kaleidoscope
+[credential]
+	helper = osxkeychain
