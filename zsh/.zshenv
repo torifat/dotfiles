@@ -1,10 +1,3 @@
-# autoload
-autoload -Uz run-help
-autoload -Uz add-zsh-hook
-autoload -Uz colors && colors
-autoload -Uz compinit && compinit -u
-autoload -Uz is-at-least
-
 # LANGUAGE must be set by en_US
 export LANGUAGE="en_US.UTF-8"
 export LANG="${LANGUAGE}"
@@ -40,9 +33,7 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 export ZPLUG_HOME=/usr/local/opt/zplug
 export ZPLUG_LOADFILE="$HOME/.zsh/zplug.zsh"
 
-setopt no_global_rcs
-
 # Add coreutils to PATH
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:./node_modules/.bin:$PATH"
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
