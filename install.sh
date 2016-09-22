@@ -40,4 +40,7 @@ chmod go-w '/usr/local/share'
 
 source ./macOS.sh
 
+# Install SFMono font
+cp -v /Applications/Xcode.app/Contents/SharedFrameworks/DVTKit.framework/Versions/A/Resources/Fonts/SFMono-* ~/Library/Fonts
+
 echo "😀  Happy Hacking"

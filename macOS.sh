@@ -1,6 +1,11 @@
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
 
+# Chime When Charging
+# Play iOS charging sound when MagSafe is connected.
+defaults write com.apple.PowerChime ChimeOnAllHardware -bool true && \
+  open /System/Library/CoreServices/PowerChime.app
+
 # Reveal IP address, hostname, OS version, etc. when clicking the clock
 # in the login window
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
@@ -43,18 +48,6 @@ defaults write com.apple.finder QLEnableTextSelection -bool true
 
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-
-# Display full POSIX path as Finder window title
-# defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-
-# Show all filename extensions
-# defaults write -g AppleShowAllExtensions -bool true
-
-# Show status bar
-# defaults write com.apple.finder ShowStatusBar -bool true
-
-# Show path bar
-# defaults write com.apple.finder ShowPathbar -bool true
 
 # Show the ~/Library folder
 chflags nohidden ~/Library

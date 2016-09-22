@@ -70,7 +70,8 @@ cask 'skype'
 cask 'utorrent'
 cask 'ngrok'
 cask 'java'
-brew 'flyway' # depends on Java
+# brew 'flyway' # depends on Java
+# cask 'ksdiff'
 
 # Non-essential Apps
 cask 'airserver'
@@ -79,6 +80,7 @@ cask 'numi'
 cask 'steam'
 cask 'codekit'
 cask 'knuff'
+# cask 'keepingyouawake' # or Amphetamine
 
 # AppStore
 mas 'Tweetbot', id: 557168941
@@ -86,12 +88,14 @@ mas 'Dash 3', id: 449589707
 mas 'Kaleidoscope', id: 587512244
 mas 'Sip', id: 507257563
 mas 'DaisyDisk', id: 411643860
+mas 'Amphetamine', id: 937984704 # Caffeine replacement
 
 # Window Management [Choose One]
 mas 'Magnet', id: 441258766
 # mas 'Divvy', id: 413857545
 # mas 'BetterSnapTool', id: 417375580
 # cask 'spectacle' # Free alternative
+# cask 'amethyst' # Free alternative
 
 mas 'Keynote', id: 409183694
 mas 'Pages', id: 409201541
