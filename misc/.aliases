@@ -1,5 +1,7 @@
+alias ls='ls -F --color=auto'
 alias l='ls -lh'
-alias ll='ls -la'
+alias la='ls -a'
+alias ll='ls -lh'
 
 alias a='atom .'
 alias b='cd ~/Developments/Backpack'

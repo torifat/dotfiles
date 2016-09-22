@@ -7,6 +7,8 @@ export LANG="${LANGUAGE}"
 export LC_ALL="${LANGUAGE}"
 export LC_CTYPE="${LANGUAGE}"
 
+export TERM=xterm-256color
+
 # Editor
 export EDITOR=vim
 export CVSEDITOR="${EDITOR}"
@@ -16,7 +18,8 @@ export GIT_EDITOR="${EDITOR}"
 # Pager
 export PAGER=less
 # Less status line
-export LESS='-R -f -X -i -P ?f%f:(stdin). ?lb%lb?L/%L.. [?eEOF:?pb%pb\%..]'
+# --SILENT : terminal bell is not rung
+export LESS='--SILENT -R -f -X -i -P ?f%f:(stdin). ?lb%lb?L/%L.. [?eEOF:?pb%pb\%..]'
 export LESSCHARSET='utf-8'
 
 # LESS man page colors (makes Man pages more readable).
@@ -34,6 +37,7 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 
 # zplug
 export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_REPOS=$HOME/.zplug/repos
 export ZPLUG_LOADFILE="$HOME/.zsh/zplug.zsh"
 
 # Add coreutils to PATH

@@ -1,10 +1,15 @@
-[alias]
-	st = status -sb
-	co = checkout
-	ci = commit
 [user]
 	email = to.rifat@gmail.com
 	name = Rifat Nabi
+[alias]
+	s = status -sb
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	l = log --pretty=oneline --abbrev-commit
+	d = diff
+  dc = diff --cached
 [core]
 	excludesfile = ~/.gitexcludes
 	ignorecase = false
@@ -26,5 +31,15 @@
 	keepBackup = false
 [diff]
 	tool = Kaleidoscope
+	compactionHeuristic = true
 [credential]
 	helper = osxkeychain
+[color "diff"]
+	# http://qiita.com/qurage/items/452f2debb64e2708a46c
+	# https://gist.github.com/jasonm23/2868981
+	meta = 242 238
+	frag = 239 236
+	old = 196 normal
+	new = 082 normal
+	context = 240
+	commit = 246 024
