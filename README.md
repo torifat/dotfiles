@@ -1,4 +1,7 @@
 # Rifat’s dotfiles
 
 ## Installation
-> TBD
+```sh
+$ git clone https://github.com/torifat/dotfiles.git ~/.dotfiles
+$ cd ~/.dotfiles && ./install.sh
+```
