@@ -1,0 +1,19 @@
+# Twitch browser player client id
+http-header=Client-ID=jzkbprff40iqj646a697cyrvl0zt2m6
+
+# The size of the thread pool used to download HLS segments. Minimum value is 1 and maximum is 10.
+hls-segment-threads=10
+hds-segment-threads=10
+
+# Open this stream when no stream argument is specified, e.g. “best”.
+default-stream best
+
+# Allow the player to display its console output.
+verbose-player
+
+player=vlc --file-caching=30000
+# player-no-close
+player-continuous-http
+
+# Make the player read the stream through HTTP instead of the stdin pipe.
+# player-http

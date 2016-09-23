@@ -23,12 +23,16 @@ bindkey $terminfo[kdch1] delete-char # Del
 setopt auto_cd
 
 ## History
-setopt append_history # Allow multiple terminal sessions to all append to one zsh command history
-setopt hist_expire_dups_first # when trimming history, lose oldest duplicates first
-setopt hist_ignore_dups # Do not write events to history that are duplicates of previous events
-setopt hist_ignore_space # remove command line from history list when first character on the line is a space
-setopt hist_find_no_dups # When searching history don't display results already cycled through twice
-setopt hist_reduce_blanks # Remove extra blanks from each command line being added to history
+# Allow multiple terminal sessions to all append to one zsh command history
+# setopt append_history # Causing history to fail
+# Add comamnds as they are typed, don't wait until shell exit
+setopt inc_append_history
+# Do not write events to history that are duplicates of previous events
+setopt hist_ignore_dups
+# When trimming history, lose oldest duplicates first
+setopt hist_expire_dups_first
+# Remove extra blanks from each command line being added to history
+setopt hist_reduce_blanks
 
 # Exit if called from vim
 [[ -n $VIMRUNTIME ]] && return

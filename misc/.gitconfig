@@ -10,6 +10,7 @@
 	l = log --pretty=oneline --abbrev-commit
 	d = diff
   dc = diff --cached
+  aa = add --all
 [core]
 	excludesfile = ~/.gitexcludes
 	ignorecase = false
