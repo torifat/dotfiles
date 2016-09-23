@@ -44,6 +44,8 @@ brew 'mtr'
 brew 'tig'
 brew 'pv'
 brew 'ssh-copy-id'
+brew 'unrar'
+brew 'livestreamer'
 
 # GUI Apps
 # cask 'slack'
@@ -60,7 +62,7 @@ cask 'docker-beta'
 cask 'istat-menus'
 cask 'little-snitch'
 cask 'spotify'
-cask 'cleanmymac'
+# cask 'cleanmymac'
 cask 'boom'
 cask 'sketch'
 cask 'navicat-for-mysql'
@@ -80,6 +82,7 @@ cask 'numi'
 cask 'steam'
 cask 'codekit'
 cask 'knuff'
+cask "keycastr"
 # cask 'keepingyouawake' # or Amphetamine
 
 # AppStore
