@@ -79,5 +79,3 @@ if zplug check zsh-users/zsh-autosuggestions; then
   # Remove *-line-or-history widgets from list of widgets that clear the autosuggestion to avoid conflict with history-substring-search-* widgets
   ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
 fi
-
-# export SEGMENT_SEPARATOR=$'\ue0c0'

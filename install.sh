@@ -43,4 +43,8 @@ source ./macOS.sh
 # Install SFMono font
 cp -v /Applications/Xcode.app/Contents/SharedFrameworks/DVTKit.framework/Versions/A/Resources/Fonts/SFMono-* ~/Library/Fonts
 
+# Install curl certificate
+mkdir -p /usr/local/share/curl/
+wget http://curl.haxx.se/ca/cacert.pem -O /usr/local/share/curl/curl-ca-bundle.crt
+
 echo "😀  Happy Hacking"

@@ -72,8 +72,9 @@ cask 'skype'
 cask 'utorrent'
 cask 'ngrok'
 cask 'java'
+cask 'ksdiff'
+cask 'lingon-x'
 # brew 'flyway' # depends on Java
-# cask 'ksdiff'
 
 # Non-essential Apps
 cask 'airserver'
