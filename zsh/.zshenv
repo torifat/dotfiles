@@ -57,7 +57,7 @@ if [[ $UID == 0 ]]; then
 fi
 
 # Curl
-export CURL_CA_BUNDLE='/usr/local/share/curl/curl-ca-bundle.crt'
+# export CURL_CA_BUNDLE='/usr/local/share/curl/curl-ca-bundle.crt'
 
 # zplug
 export ZPLUG_HOME=/usr/local/opt/zplug
