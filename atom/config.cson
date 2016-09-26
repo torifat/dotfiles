@@ -1,0 +1,41 @@
+"*":
+  core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".hgrc"
+        ".flowconfig"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
+    disabledPackages: [
+      "tree-view"
+      "linter"
+    ]
+    packagesWithKeymapsDisabled: []
+  editor:
+    fontFamily: "Operator Mono"
+    fontSize: 13
+    showInvisibles: true
+  "expand-region": {}
+  minimap:
+    plugins:
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  nuclide:
+    installRecommendedPackages: true
+    "nuclide-flow": {}
+    "nuclide-home":
+      showHome: false
+  "tool-bar":
+    iconSize: "16px"
+    position: "Left"
+  welcome:
+    showOnStartup: false

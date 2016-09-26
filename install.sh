@@ -30,6 +30,7 @@ if ! fgrep -q $(command -v zsh) /etc/shells; then
 fi;
 
 stow -v misc zsh
+stow -t $HOME/.atom atom
 
 n latest
 

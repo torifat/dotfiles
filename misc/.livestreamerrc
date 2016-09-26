@@ -11,9 +11,9 @@ default-stream best
 # Allow the player to display its console output.
 verbose-player
 
-player=vlc --file-caching=30000
+# player=vlc --file-caching=30000
 # player-no-close
-player-continuous-http
+# player-continuous-http
 
 # Make the player read the stream through HTTP instead of the stdin pipe.
 # player-http

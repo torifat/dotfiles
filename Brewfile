@@ -82,7 +82,8 @@ cask 'numi'
 cask 'steam'
 cask 'codekit'
 cask 'knuff'
-cask "keycastr"
+cask 'keycastr'
+cask 'dripcap'
 # cask 'keepingyouawake' # or Amphetamine
 
 # AppStore
