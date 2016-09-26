@@ -17,7 +17,9 @@
       "tree-view"
       "linter"
     ]
-    packagesWithKeymapsDisabled: []
+    packagesWithKeymapsDisabled: [
+      "emmet"
+    ]
   editor:
     fontFamily: "Operator Mono"
     fontSize: 13
