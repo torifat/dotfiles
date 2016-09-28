@@ -8,6 +8,9 @@ zplug "plugins/git", \
   from:oh-my-zsh, \
   if:"(( $+commands[git] ))"
 
+# npm run completion
+zplug "akoenig/npm-run.plugin.zsh"
+
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", nice:18 # Should be loaded 2nd last.
