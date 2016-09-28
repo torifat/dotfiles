@@ -63,6 +63,7 @@ fi
 export ZPLUG_HOME=/usr/local/opt/zplug
 export ZPLUG_REPOS=$HOME/.zplug/repos
 export ZPLUG_LOADFILE="$HOME/.zsh/zplug.zsh"
+export ZPLUG_CLONE_DEPTH=1
 
 # Add coreutils to PATH
 export PATH="/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$PATH"

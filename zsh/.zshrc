@@ -22,9 +22,18 @@ bindkey $terminfo[kdch1] delete-char # Del
 # automatically enter directories without cd
 setopt auto_cd
 
+# No Beep
+setopt no_beep
+setopt no_list_beep
+setopt no_hist_beep
+
+# Expand '=command' as path of command
+# e.g.) '=ls' -> '/bin/ls'
+setopt equals
+
 ## History
-# Allow multiple terminal sessions to all append to one zsh command history
-# setopt append_history # Causing history to fail
+# Shere history
+setopt share_history
 # Add comamnds as they are typed, don't wait until shell exit
 setopt inc_append_history
 # Do not write events to history that are duplicates of previous events
@@ -33,6 +42,16 @@ setopt hist_ignore_dups
 setopt hist_expire_dups_first
 # Remove extra blanks from each command line being added to history
 setopt hist_reduce_blanks
+# Record start and end time to history file
+setopt extended_history
+# Ignore the beginning space command to history file
+setopt hist_ignore_space
+# Append to history file
+setopt append_history
+# Edit history file during call history before executing
+setopt hist_verify
+# Enable history system like a Bash
+setopt bang_hist
 
 # Exit if called from vim
 [[ -n $VIMRUNTIME ]] && return

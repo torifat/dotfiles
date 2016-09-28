@@ -1,11 +1,12 @@
 alias ls='ls -F --color=auto'
 alias l='ls -lh'
-alias la='ls -a'
+alias la='ls -lha'
 alias ll='ls -lh'
 
 alias a='atom .'
 alias b='cd ~/Developments/Backpack'
 alias d='cd ~/Developments/'
+alias k='k -h'
 alias o='open .'
 
 alias cask='brew cask'
