@@ -11,7 +11,7 @@
     prefix: "imrc"
     body: "import React, { Component } from 'react';";
 
-  "React: Class":
+  "React: Component":
     prefix: "rc"
     body: """
       import React, { Component } from 'react';
@@ -23,6 +23,25 @@
           );
         }
       }
+    """;
+
+  "React: Container":
+    prefix: "rcc"
+    body: """
+      import React, { Component } from 'react';
+      import { connect } from 'react-redux';
+
+      class ${1:HelloWorld} extends Component {
+        render () {
+          return (
+            <div>$2</div>
+          );
+        }
+      }
+
+      const mapStateToProps = (state: State) => ({});
+
+      export default connect(mapStateToProps)(${1:HelloWorld});
     """;
 
   "React: componentWillMount":
