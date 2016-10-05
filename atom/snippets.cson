@@ -103,3 +103,7 @@
   "Flow: init":
     prefix: "fl"
     body: "/* @flow */";
+
+  "JSX: Backpack Two Columns":
+    prefix: "2c"
+    body: ".block>section.two-columns>article+aside";
