@@ -34,6 +34,9 @@ stow -t $HOME/.atom atom
 
 n latest
 
+# Install yarn
+curl -o- -L https://yarnpkg.com/install.sh | bash
+
 apm install --production false --packages-file Atomfile
 
 # Fix autocomp permission

@@ -66,6 +66,6 @@ export ZPLUG_LOADFILE="$HOME/.zsh/zplug.zsh"
 export ZPLUG_CLONE_DEPTH=1
 
 # Add coreutils to PATH
-export PATH="/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$PATH"
+export PATH="$HOME/.yarn/bin:/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$PATH"
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"

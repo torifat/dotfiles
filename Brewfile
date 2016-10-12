@@ -74,6 +74,8 @@ cask 'ngrok'
 cask 'java'
 cask 'ksdiff'
 # brew 'flyway' # depends on Java
+cask 'qlmarkdown'
+cask 'kap'
 
 # Non-essential Apps
 cask 'airserver'

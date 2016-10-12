@@ -21,6 +21,8 @@
       "nuclide"
       "emmet"
     ]
+    telemetryConsent: "limited"
+    useCustomTitleBar: true
   editor:
     fontFamily: "Operator Mono"
     fontSize: 13

@@ -8,5 +8,6 @@ alias b='cd ~/Developments/Backpack'
 alias d='cd ~/Developments/'
 alias k='k -h'
 alias o='open .'
+alias y='yarn'
 
 alias cask='brew cask'
