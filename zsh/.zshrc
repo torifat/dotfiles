@@ -71,6 +71,9 @@ fi
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # zplug
+# Git clone depth
+zstyle :zplug:tag depth 1
+
 source $ZPLUG_HOME/init.zsh
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
