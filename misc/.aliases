@@ -9,5 +9,6 @@ alias d='cd ~/Developments/'
 alias k='k -h'
 alias o='open .'
 alias y='yarn'
+alias p2m='gcm && gl && gm develop --log && gp && gcd'
 
 alias cask='brew cask'
