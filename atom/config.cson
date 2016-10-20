@@ -16,6 +16,7 @@
     disabledPackages: [
       "tree-view"
       "linter"
+      "whitespace"
     ]
     packagesWithKeymapsDisabled: [
       "nuclide"
