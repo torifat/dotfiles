@@ -21,6 +21,10 @@ brew 'ngrep'
 brew 'less', args: ['with-pcre']
 brew 'openssh'
 
+# I want to compile stuff too
+brew 'automake'
+brew 'autoconf'
+
 # ZSH related stuff
 brew 'zsh'
 brew 'zplug' #, args: ['with-zsh']
