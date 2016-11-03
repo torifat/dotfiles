@@ -17,9 +17,12 @@ brew 'n'
 # Install more recent versions of some macOS tools.
 brew 'vim', args: ['with-override-system-vi']
 brew 'grep', args: ['with-default-names']
-brew 'ngrep'
 brew 'less', args: ['with-pcre']
 brew 'openssh'
+
+# Other useful stuff
+brew 'ngrep'
+brew 'ctags' # For vim Tagbar
 
 # I want to compile stuff too
 brew 'automake'
@@ -51,6 +54,8 @@ brew 'pv'
 brew 'ssh-copy-id'
 brew 'unrar'
 brew 'livestreamer'
+brew 'figlet'
+brew 'the_silver_searcher'
 
 # GUI Apps
 # cask 'slack'

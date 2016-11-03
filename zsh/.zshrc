@@ -84,9 +84,10 @@ fi
 zplug load --verbose
 
 # aliases
-if [ -e "$HOME/.aliases" ]; then
-  source "$HOME/.aliases"
-fi
+[ -f ~/.aliases ] && source ~/.aliases
+
+# Private Stuff ;)
+[ -f ~/.secret ] && source ~/.secret
 
 # Bind UP and DOWN arrow keys for subsstring search.
 if zplug check zsh-users/zsh-history-substring-search; then
@@ -101,3 +102,153 @@ if zplug check zsh-users/zsh-autosuggestions; then
   # Remove *-line-or-history widgets from list of widgets that clear the autosuggestion to avoid conflict with history-substring-search-* widgets
   ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
 fi
+
+# fzf (https://github.com/junegunn/fzf)
+# --------------------------------------------------------------------
+
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND | with-dir"
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden --bind '?:toggle-preview'"
+command -v blsd > /dev/null && export FZF_ALT_C_COMMAND='blsd'
+command -v tree > /dev/null && export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+
+# fd - cd to selected directory
+fd() {
+  DIR=`find ${1:-*} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf-tmux` \
+    && cd "$DIR"
+}
+
+# fda - including hidden directories
+fda() {
+  DIR=`find ${1:-.} -type d 2> /dev/null | fzf-tmux` && cd "$DIR"
+}
+
+# Figlet font selector
+fgl() (
+  cd /usr/local/Cellar/figlet/*/share/figlet/fonts
+  ls *.flf | sort | fzf --no-multi --reverse --preview "figlet -f {} Hello World!"
+)
+
+# fbr - checkout git branch
+fbr() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+# fco - checkout git branch/tag
+fco() {
+  local tags branches target
+  tags=$(
+    git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
+  branches=$(
+    git branch --all | grep -v HEAD             |
+    sed "s/.* //"    | sed "s#remotes/[^/]*/##" |
+    sort -u          | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
+  target=$(
+    (echo "$tags"; echo "$branches") |
+    fzf-tmux -l40 -- --no-hscroll --ansi +m -d "\t" -n 2 -1 -q "$*") || return
+  git checkout $(echo "$target" | awk '{print $2}')
+}
+
+# fshow - git commit browser
+fshow() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --header "Press CTRL-S to toggle sort" \
+      --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
+                 xargs -I % sh -c 'git show --color=always % | head -200 '" \
+      --bind "enter:execute:echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
+              xargs -I % sh -c 'vim fugitive://\$(git rev-parse --show-toplevel)/.git//% < /dev/tty'"
+}
+
+# ftags - search ctags
+ftags() {
+  local line
+  [ -e tags ] &&
+  line=$(
+    awk 'BEGIN { FS="\t" } !/^!/ {print toupper($4)"\t"$1"\t"$2"\t"$3}' tags |
+    cut -c1-$COLUMNS | fzf --nth=2 --tiebreak=begin
+  ) && $EDITOR $(cut -f3 <<< "$line") -c "set nocst" \
+                                      -c "silent tag $(cut -f2 <<< "$line")"
+}
+
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+fe() {
+  local file
+  file=$(fzf-tmux --query="$1" --select-1 --exit-0)
+  [ -n "$file" ] && ${EDITOR:-vim} "$file"
+}
+
+# Modified version where you can press
+#   - CTRL-O to open with `open` command,
+#   - CTRL-E or Enter key to open with the $EDITOR
+fo() {
+  local out file key
+  IFS=$'\n' read -d '' -r -a out < <(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)
+  key=${out[0]}
+  file=${out[1]}
+  if [ -n "$file" ]; then
+    if [ "$key" = ctrl-o ]; then
+      open "$file"
+    else
+      ${EDITOR:-vim} "$file"
+    fi
+  fi
+}
+
+# GIT heart FZF
+# -------------
+
+is_in_git_repo() {
+  git rev-parse HEAD > /dev/null 2>&1
+}
+
+gf() {
+  is_in_git_repo || return
+  git -c color.status=always status --short |
+  fzf-tmux -m --ansi --nth 2..,.. \
+    --preview '(git diff --color=always -- {-1} | sed 1,4d; cat {-1}) | head -500' |
+  cut -c4- | sed 's/.* -> //'
+}
+
+gb() {
+  is_in_git_repo || return
+  git branch -a --color=always | grep -v '/HEAD\s' | sort |
+  fzf-tmux --ansi --multi --tac --preview-window right:70% \
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -200' |
+  sed 's/^..//' | cut -d' ' -f1 |
+  sed 's#^remotes/##'
+}
+
+gt() {
+  is_in_git_repo || return
+  git tag --sort -version:refname |
+  fzf-tmux --multi --preview-window right:70% \
+    --preview 'git show --color=always {} | head -200'
+}
+
+gh() {
+  is_in_git_repo || return
+  git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph |
+  fzf-tmux --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
+    --header 'Press CTRL-S to toggle sort' \
+    --preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always | head -200' |
+  grep -o "[a-f0-9]\{7,\}"
+}
+
+gr() {
+  is_in_git_repo || return
+  git remote -v | awk '{print $1 "\t" $2}' | uniq |
+  fzf-tmux --tac \
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {1} | head -200' |
+  cut -d$'\t' -f1
+}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
