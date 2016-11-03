@@ -12,3 +12,5 @@ alias y='yarn'
 alias p2m='gcm && gl && gm develop --log && gp && gcd'
 
 alias cask='brew cask'
+
+function take () { mkdir -p $1 && cd $1 }

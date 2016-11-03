@@ -17,6 +17,7 @@ brew 'n'
 # Install more recent versions of some macOS tools.
 brew 'vim', args: ['with-override-system-vi']
 brew 'grep', args: ['with-default-names']
+brew 'ngrep'
 brew 'less', args: ['with-pcre']
 brew 'openssh'
 
