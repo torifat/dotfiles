@@ -46,8 +46,9 @@ endif
 unlet! g:plug_url_format
 
 " Colors
-Plug 'tomasr/molokai'
-Plug 'chriskempson/vim-tomorrow-theme'
+" Plug 'tomasr/molokai'
+" Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'jacoborus/tender'
 
 " Edit
 Plug 'tpope/vim-repeat'
@@ -336,7 +337,7 @@ if has('gui_running')
   set guifont=Menlo:h14 columns=80 lines=40
   silent! colo seoul256-light
 else
-  silent! colo seoul256
+  silent! colo tender
 endif
 
 " }}}

@@ -29,7 +29,7 @@ if ! fgrep -q $(command -v zsh) /etc/shells; then
   chsh -s $(command -v zsh)
 fi;
 
-stow -v misc zsh
+stow -v git misc zsh
 stow -t $HOME/.atom atom
 
 n latest

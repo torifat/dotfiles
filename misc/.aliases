@@ -1,3 +1,4 @@
+# vim: set syntax=zsh:
 alias ls='ls -F --color=auto'
 alias l='ls -lh'
 alias la='ls -lha'
@@ -9,8 +10,18 @@ alias d='cd ~/Developments/'
 alias k='k -h'
 alias o='open .'
 alias y='yarn'
+alias yui='yarn update-interactive'
 alias p2m='gcm && gl && gm develop --log && gp && gcd'
 
 alias cask='brew cask'
 
 function take () { mkdir -p $1 && cd $1 }
+
+# Git
+alias g='git'
+alias gp='git push'
+alias gm='git merge'
+alias gco='git checkout'
+alias gcm='git checkout master'
+alias gcd='git checkout develop'
+

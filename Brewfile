@@ -3,6 +3,7 @@ cask_args appdir: '/Applications'
 tap 'caskroom/cask'
 tap 'homebrew/dupes'
 tap 'Caskroom/versions'
+tap 'burntsushi/ripgrep'
 
 brew 'curl', args: ['with-openssl', 'with-nghttp2']
 # Install GNU core utilities (those that come with macOS are outdated).
@@ -56,6 +57,8 @@ brew 'unrar'
 brew 'livestreamer'
 brew 'figlet'
 brew 'the_silver_searcher'
+brew 'ripgrep'
+brew 'exiftool'
 
 # GUI Apps
 # cask 'slack'

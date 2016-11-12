@@ -13,6 +13,7 @@
  	aa = add --all
 [core]
 	excludesfile = ~/.gitexcludes
+	attributesFile = ~/.gitattributes
 	ignorecase = false
 [color]
 	ui = auto
