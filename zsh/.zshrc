@@ -251,4 +251,11 @@ gr() {
   cut -d$'\t' -f1
 }
 
+yr() {
+  cat package.json | jq -r '.dependencies | to_entries[] | .key' |
+  fzf-tmux --multi --header 'Ctrl + C to exit' \
+    --preview "yarn info {1}" |
+  xargs yarn remove
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

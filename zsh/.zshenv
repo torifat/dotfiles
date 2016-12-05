@@ -38,6 +38,10 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 # fzf - command-line fuzzy finder (https://github.com/junegunn/fzf)
 export FZF_DEFAULT_OPTS="--extended --ansi --multi"
 
+# enhancd
+export ENHANCD_DISABLE_DOT=1
+export ENHANCD_DISABLE_HYPHEN=1
+
 # Cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -65,6 +69,8 @@ export ZPLUG_REPOS=$HOME/.zplug/repos
 export ZPLUG_LOADFILE="$HOME/.zsh/zplug.zsh"
 
 # Add coreutils to PATH
-export PATH="$HOME/.yarn/bin:/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.yarn/bin:/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$PATH"
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
+
+export RUST_SRC_PATH=/usr/local/src/rust/src

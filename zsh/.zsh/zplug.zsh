@@ -12,4 +12,4 @@ zplug "zsh-users/zsh-history-substring-search", nice:19 # Should be loaded last.
 zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:\*darwin\*amd64\*
 
 setopt prompt_subst # Make sure prompt is able to be generated properly.
-zplug "yardnsm/blox-zsh-theme", use:blox.zsh
+zplug "yardnsm/blox-zsh-theme", as:theme
