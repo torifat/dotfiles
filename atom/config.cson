@@ -26,7 +26,6 @@
     useCustomTitleBar: true
   editor:
     fontFamily: "Operator Mono"
-    fontSize: 13
     showInvisibles: true
   "exception-reporting":
     userId: "29888311-d9a9-b135-7fe0-ffd8012703e2"
