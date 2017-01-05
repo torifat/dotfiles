@@ -27,9 +27,12 @@
   editor:
     fontFamily: "Operator Mono"
     showInvisibles: true
+  emmet:
+    extensionsPath: "~/.emmet"
   "exception-reporting":
     userId: "29888311-d9a9-b135-7fe0-ffd8012703e2"
   "expand-region": {}
+  "file-icons": {}
   "linter-eslint":
     globalNodePath: "/usr/local"
   minimap:
@@ -40,11 +43,18 @@
       "highlight-selectedDecorationsZIndex": 0
   nuclide:
     installRecommendedPackages: true
-    "nuclide-flow": {}
+    "nuclide-distraction-free-mode":
+      hideFindAndReplace: true
+      hideStatusBar: true
+      hideToolBar: true
+    "nuclide-flow":
+      warnOnNotInstalled: false
     "nuclide-home":
       showHome: false
+    "nuclide-notifications": {}
   "tool-bar":
     iconSize: "16px"
     position: "Left"
+    visible: false
   welcome:
     showOnStartup: false
