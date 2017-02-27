@@ -13,9 +13,9 @@ atom-panel.tool-panel, atom-pane {
   font-size: 0.95em;
 }
 
-.editor, atom-text-editor::shadow {
-  .flowtype,
-  .entity.other.attribute-name {
-    font-style: italic;
-  }
+.editor .flowtype,
+atom-text-editor.editor .syntax--flowtype,
+.editor .entity.other.attribute-name,
+atom-text-editor.editor .syntax--entity.syntax--other.syntax--attribute-name {
+  font-style: italic;
 }
