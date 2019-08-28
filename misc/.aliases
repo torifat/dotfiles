@@ -5,14 +5,13 @@ alias la='ls -lha'
 alias ll='ls -lh'
 
 alias a='atom .'
-alias b='cd ~/Developments/Backpack'
-alias d='cd ~/Developments/'
+alias b='bolt'
+alias d='cd ~/dev/aux'
 alias k='k -h'
 alias o='open .'
 alias y='yarn'
 alias yd='~/Developments/yarn/bin/yarn'
-alias yui='yarn update-interactive'
-alias p2m='gcm && gl && gm develop --log && gp && gcd'
+alias yui='yarn upgrade-interactive'
 
 alias cask='brew cask'
 
@@ -26,3 +25,9 @@ alias gm='git merge'
 alias gco='git checkout'
 alias gcm='git checkout master'
 alias gcd='git checkout develop'
+
+# cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'

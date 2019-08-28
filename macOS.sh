@@ -1,27 +1,14 @@
-# Set standby delay to 24 hours (default is 1 hour)
-sudo pmset -a standbydelay 86400
+# -g is shorthand for NSGlobalDomain
 
-# Chime When Charging
-# Play iOS charging sound when MagSafe is connected.
-defaults write com.apple.PowerChime ChimeOnAllHardware -bool true && \
-  open /System/Library/CoreServices/PowerChime.app
+# Enable tap-clicking
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write -g com.apple.mouse.tapBehavior -int 1
+defaults write -g com.apple.mouse.tapBehavior -int 1
 
-# Reveal IP address, hostname, OS version, etc. when clicking the clock
-# in the login window
-sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
-
-# Restart automatically if the computer freezes
-sudo systemsetup -setrestartfreeze on
-
-# Never go into computer sleep mode
-sudo systemsetup -setcomputersleep Off > /dev/null
-
+# Enable subpixel font rendering on non-Apple LCDs
+defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
 ## General UI/UX
-# -g is shorthand for NSGlobalDomain
-# Set highlight color to green
-defaults write -g AppleHighlightColor -string "0.764700 0.976500 0.568600"
-
 # Expand save panel by default
 defaults write -g NSNavPanelExpandedStateForSaveMode -bool true
 
@@ -33,6 +20,9 @@ defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Disable auto-correct
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Change Screenshots location
+defaults write com.apple.screencapture location ~/Pictures/Screenshots
 
 killall SystemUIServer
 
@@ -59,6 +49,9 @@ killall Finder
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock tilesize -int 48
+
+# Add Screenshots to dock
+# defaults write com.apple.dock persistent-others -array-add '{ tile-data={ arrangement=2; file-data={ _CFURLString="file:///Users/rnabi/Pictures/Screenshots/"; _CFURLStringType= 15; }; file-label="Screenshots"; file-type=2; preferreditemsize=-1; showas=1; }; tile-type="directory-tile"; }'
 
 killall Dock
 

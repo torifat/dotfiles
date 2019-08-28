@@ -1,24 +1,17 @@
-cask_args appdir: '/Applications'
-
-tap 'caskroom/cask'
-tap 'homebrew/dupes'
-tap 'Caskroom/versions'
-tap 'burntsushi/ripgrep'
-
-brew 'curl', args: ['with-openssl', 'with-nghttp2']
+brew 'curl'
 # Install GNU core utilities (those that come with macOS are outdated).
 brew 'coreutils'
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
-brew 'findutils', args: ['with-default-names']
-brew 'gnu-sed', args: ['with-default-names']
-brew 'wget', args: ['with-iri']
+brew 'findutils'
+brew 'gnu-sed'
+brew 'wget'
 brew 'tmux'
 brew 'n'
 
 # Install more recent versions of some macOS tools.
-brew 'vim', args: ['with-override-system-vi']
-brew 'grep', args: ['with-default-names']
-brew 'less', args: ['with-pcre']
+brew 'vim'
+brew 'grep'
+brew 'less'
 brew 'openssh'
 
 # Other useful stuff
@@ -31,7 +24,7 @@ brew 'autoconf'
 
 # ZSH related stuff
 brew 'zsh'
-brew 'zplug' #, args: ['with-zsh']
+brew 'zplug'
 brew 'zsh-completions'
 
 # Install other useful binaries.
@@ -39,79 +32,77 @@ brew 'ack'
 brew 'git'
 brew 'stow'
 brew 'tree'
-brew 'dark-mode'
-brew 'imagemagick', args: ['with-webp']
+# brew 'imagemagick'
 brew 'jq'
 brew 'asciinema'
 brew 'hub'
-brew 'watchman'
-brew 'wifi-password'
-brew 'axel'
-brew 'youtube-dl'
 brew 'fortune'
 brew 'mtr'
 brew 'tig'
+# Pipe Viewer
 brew 'pv'
 brew 'ssh-copy-id'
 brew 'unrar'
-brew 'livestreamer'
+# Banner-like program prints strings as ASCII art
 brew 'figlet'
-brew 'the_silver_searcher'
+brew 'fzf'
+brew 'bat'
 brew 'ripgrep'
 brew 'exiftool'
 
 # GUI Apps
+tap 'homebrew/cask'
+cask_args appdir: '/Applications'
+
 # cask 'slack'
 cask 'slack-beta'
 cask 'iterm2'
-cask 'hyperterm'
-cask 'google-chrome'
-cask 'atom'
-# cask 'tower'
-cask 'tower-beta'
+cask 'hyper'
 cask '1password'
-cask 'dropbox'
-cask 'docker-beta'
+# cask 'docker-beta'
 cask 'istat-menus'
-cask 'little-snitch'
+# cask 'little-snitch'
 cask 'spotify'
-# cask 'cleanmymac'
-cask 'boom'
 cask 'sketch'
-cask 'navicat-for-mysql'
-cask 'vlc'
-cask 'paw'
-cask 'skype'
-cask 'utorrent'
+# cask 'vlc'
+# cask 'paw'
 cask 'ngrok'
-cask 'java'
-cask 'ksdiff'
-# brew 'flyway' # depends on Java
-cask 'qlmarkdown'
+# cask 'ksdiff'
 cask 'kap'
+cask 'sublime-merge'
+cask 'alfred'
 
 # Non-essential Apps
-cask 'airserver'
-cask 'licecap'
+# cask 'airserver'
+cask 'airflow'
+# cask 'licecap'
 cask 'numi'
-cask 'steam'
-cask 'codekit'
-cask 'knuff'
 cask 'keycastr'
-cask 'dripcap'
+cask 'visual-studio-code'
+# cask 'dripcap'
 # cask 'keepingyouawake' # or Amphetamine
+# Clean your keyboard like never before :P
+cask 'keyboard-cleaner'
+
+# Games
+# cask 'steam'
+cask 'battle-net'
+cask 'hstracker'
+
+# Fonts
+tap 'homebrew/cask-fonts'
 
 # AppStore
 mas 'Tweetbot', id: 557168941
-mas 'Dash 3', id: 449589707
+# mas 'Dash 3', id: 449589707
 mas 'Kaleidoscope', id: 587512244
-mas 'Sip', id: 507257563
+# mas 'Sip', id: 507257563
 mas 'DaisyDisk', id: 411643860
 mas 'Amphetamine', id: 937984704 # Caffeine replacement
 
 # Window Management [Choose One]
-mas 'Magnet', id: 441258766
-# mas 'Divvy', id: 413857545
+mas 'Divvy', id: 413857545
+# mas 'Magnet', id: 441258766
 # mas 'BetterSnapTool', id: 417375580
 # cask 'spectacle' # Free alternative
 # cask 'amethyst' # Free alternative
