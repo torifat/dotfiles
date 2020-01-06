@@ -49,6 +49,8 @@ brew 'fzf'
 brew 'bat'
 brew 'ripgrep'
 brew 'exiftool'
+# To connect/disconnect AirPods
+brew 'bluetoothconnector'
 
 # GUI Apps
 tap 'homebrew/cask'
@@ -91,6 +93,7 @@ cask 'hstracker'
 
 # Fonts
 tap 'homebrew/cask-fonts'
+cask 'font-fantasque-sans-mono'
 
 # AppStore
 mas 'Tweetbot', id: 557168941
@@ -107,6 +110,7 @@ mas 'Divvy', id: 413857545
 # cask 'spectacle' # Free alternative
 # cask 'amethyst' # Free alternative
 
+mas 'parcel', id: 639968404
 mas 'Keynote', id: 409183694
 mas 'Pages', id: 409201541
 mas 'Numbers', id: 409203825
