@@ -29,10 +29,6 @@ export LESS_TERMCAP_so=$'\E[00;44;37m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-# ls command colors
-export LSCOLORS=exfxcxdxbxegedabagacad
-export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-
 # enhancd
 export ENHANCD_DISABLE_DOT=1
 export ENHANCD_DISABLE_HYPHEN=1
@@ -55,17 +51,11 @@ if [[ $UID == 0 ]]; then
     export SAVEHIST=0
 fi
 
-# Curl
-# export CURL_CA_BUNDLE='/usr/local/share/curl/curl-ca-bundle.crt'
-
-# zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
-export ZPLUG_REPOS=$HOME/.zplug/repos
-export ZPLUG_LOADFILE="$HOME/.zsh/zplug.zsh"
-
-# Add coreutils to PATH
-export PATH="$HOME/.cargo/bin:$HOME/.yarn/bin:/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$PATH"
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
-
+export N_PREFIX="$HOME/.node"
 export RUST_SRC_PATH=/usr/local/src/rust/src
+
+export PATH="$N_PREFIX/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.yarn/bin:/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
