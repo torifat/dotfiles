@@ -9,8 +9,8 @@
 	br = branch
 	l = log --pretty=oneline --abbrev-commit
 	d = diff
-  	dc = diff --cached
- 	aa = add --all
+	dc = diff --cached
+	aa = add --all
 [core]
 	excludesfile = ~/.gitexcludes
 	attributesFile = ~/.gitattributes
@@ -45,3 +45,12 @@
 	new = 082 normal
 	context = 240
 	commit = 246 024
+[stash]
+	showPatch = true
+[rebase]
+	autostash = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
