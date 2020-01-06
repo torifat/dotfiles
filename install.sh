@@ -30,14 +30,11 @@ if ! fgrep -q $(command -v zsh) /etc/shells; then
 fi;
 
 stow -v git misc zsh
-stow -t $HOME/.atom atom
 
 n latest
 
 # Install yarn
 curl -o- -L https://yarnpkg.com/install.sh | bash
-
-apm install --production false --packages-file Atomfile
 
 # Fix autocomp permission
 chmod go-w '/usr/local/share'
@@ -51,14 +48,5 @@ cp -v /Applications/Xcode.app/Contents/SharedFrameworks/DVTKit.framework/Version
 # Install curl certificate
 # mkdir -p /usr/local/share/curl/
 # wget http://curl.haxx.se/ca/cacert.pem -O /usr/local/share/curl/curl-ca-bundle.crt
-
-# Install fzf
-echo "Setting up fzf ..."
-yes | /usr/local/opt/fzf/install
-
-# Install VimPlug
-# https://github.com/junegunn/vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "😀  Happy Hacking"
