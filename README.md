@@ -1,6 +1,6 @@
 # Rifat’s dotfiles
 
-![iTerm2](https://cloud.githubusercontent.com/assets/208544/18931202/017fd8b4-85ed-11e6-8ebb-0d27e45b5505.png)
+![iTerm2](https://user-images.githubusercontent.com/208544/71858151-41ce6480-313e-11ea-9023-c20f96bcf116.png)
 
 ## Installation
 ```sh
