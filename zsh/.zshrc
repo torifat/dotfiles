@@ -2,9 +2,10 @@ source "$HOME/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-export PS1="Loading..."
+export PS1=""
 
 # Bind Keys
+# `cat -v` and type to get the codes
 bindkey -d
 bindkey "\e[H" beginning-of-line # Fn+Left
 bindkey "\e[F" end-of-line # Fn+Right
@@ -12,6 +13,9 @@ bindkey "\e\e[C" forward-word # Option+Right
 bindkey "\e\e[D" backward-word # Option+Left
 bindkey $terminfo[kcbt] reverse-menu-complete # Shift+Tab
 bindkey $terminfo[kdch1] delete-char # Del
+# Bind UP and DOWN arrow keys for subsstring search.
+bindkey "\e[A" history-substring-search-up
+bindkey "\e[B" history-substring-search-down
 
 # Automatically enter directories without cd
 setopt auto_cd
@@ -57,18 +61,18 @@ zshaddhistory() {
 # Private Stuff ;)
 [ -f ~/.secret ] && source ~/.secret
 
-# iTerm2 Shell Integration
-[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
-
 # Exit if called from vim
 [[ -n $VIMRUNTIME ]] && return
 
 # Sane ZSH options
 # https://github.com/willghatch/zsh-saneopt/blob/master/saneopt.plugin.zsh
-zplugin load willghatch/zsh-saneopt
+zplugin light willghatch/zsh-saneopt
 
 # Theme
 # -----------------------------------------------------------------------
+# zplugin ice depth"1"
+# zpl light romkatv/zsh-defer
+
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 # After finishing the configuration wizard change the atload'' ice to:
@@ -111,6 +115,10 @@ zplugin load zdharma/fast-syntax-highlighting
 # zsh-autosuggestions
 zplugin ice wait"2" lucid atload"!_zsh_autosuggest_start"
 zplugin load zsh-users/zsh-autosuggestions
+
+# zsh-zsh-history-substring-search
+zplugin ice wait"1" lucid
+zplugin load zsh-users/zsh-history-substring-search
 
 # zdharma/history-search-multi-word
 zstyle ":history-search-multi-word" page-size "11"
