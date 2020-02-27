@@ -141,6 +141,10 @@ zinit load trapd00r/LS_COLORS
 zinit ice wait"2" lucid
 zinit load gretzky/n.zsh
 
+# npm scripts
+zinit ice wait"2" lucid
+zinit load 'torifat/npms'
+
 # Should be after loading the plugins
 # Bind UP and DOWN arrow keys for subsstring search.
 bindkey "\e[A" history-substring-search-up
