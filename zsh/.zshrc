@@ -1,6 +1,6 @@
-source "$HOME/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+source "$HOME/.zinit/bin/zplugin.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 export PS1=""
 
@@ -13,9 +13,6 @@ bindkey "\e\e[C" forward-word # Option+Right
 bindkey "\e\e[D" backward-word # Option+Left
 bindkey $terminfo[kcbt] reverse-menu-complete # Shift+Tab
 bindkey $terminfo[kdch1] delete-char # Del
-# Bind UP and DOWN arrow keys for subsstring search.
-bindkey "\e[A" history-substring-search-up
-bindkey "\e[B" history-substring-search-down
 
 # Automatically enter directories without cd
 setopt auto_cd
@@ -66,11 +63,11 @@ zshaddhistory() {
 
 # Sane ZSH options
 # https://github.com/willghatch/zsh-saneopt/blob/master/saneopt.plugin.zsh
-zplugin light willghatch/zsh-saneopt
+zinit light willghatch/zsh-saneopt
 
 # Theme
 # -----------------------------------------------------------------------
-# zplugin ice depth"1"
+# zinit ice depth"1"
 # zpl light romkatv/zsh-defer
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
@@ -79,65 +76,77 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 # -> atload"source ~/.p10k.zsh; _p9k_precmd"
 # Before install
 # <- atload"true; _p9k_precmd"
-zplugin ice wait"!" lucid atload"source ~/.p10k.zsh; _p9k_precmd" nocd
-zplugin load romkatv/powerlevel10k
+zinit ice wait"!" lucid atload"source ~/.p10k.zsh; _p9k_precmd" nocd
+zinit load romkatv/powerlevel10k
 # -----------------------------------------------------------------------
 
-zplugin ice wait"1" lucid
-zplugin load "chriskempson/base16-shell"
+zinit ice wait"1" lucid
+zinit load "chriskempson/base16-shell"
 
 # diff-so-fancy
-zplugin ice wait"2" lucid as"program" pick"bin/git-dsf"
-zplugin load zdharma/zsh-diff-so-fancy
+zinit ice wait"2" lucid as"program" pick"bin/git-dsf"
+zinit load zdharma/zsh-diff-so-fancy
 
 # Emoji
-zplugin ice wait"2" lucid
-zplugin load 'wfxr/emoji-cli'
+zinit ice wait"2" lucid
+zinit load 'wfxr/emoji-cli'
 
 # forgit
-zplugin ice wait"2" lucid
-zplugin load 'wfxr/forgit'
+zinit ice wait"2" lucid
+zinit load 'wfxr/forgit'
 
 # zsh-autopair
-zplugin ice wait"2" lucid
-zplugin load hlissner/zsh-autopair
+zinit ice wait"2" lucid
+zinit load hlissner/zsh-autopair
 
 # Tips
-zplugin ice wait"2" lucid
-zplugin load djui/alias-tips
-# zplugin load molovo/tipz
+zinit ice wait"2" lucid
+zinit load djui/alias-tips
+# zinit load molovo/tipz
 
 # Autosuggestions & fast-syntax-highlighting
 # -----------------------------------------------------------------------
-zplugin ice wait"3" lucid atinit"ZPLGM[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
-zplugin load zdharma/fast-syntax-highlighting
+zinit ice wait"3" lucid atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
+zinit load zdharma/fast-syntax-highlighting
 
 # zsh-autosuggestions
-zplugin ice wait"2" lucid atload"!_zsh_autosuggest_start"
-zplugin load zsh-users/zsh-autosuggestions
+zinit ice wait"2" lucid atload"!_zsh_autosuggest_start"
+zinit load zsh-users/zsh-autosuggestions
 
 # zsh-zsh-history-substring-search
-zplugin ice wait"1" lucid
-zplugin load zsh-users/zsh-history-substring-search
+zinit ice wait"1" lucid
+zinit load zsh-users/zsh-history-substring-search
 
 # zdharma/history-search-multi-word
 zstyle ":history-search-multi-word" page-size "11"
-zplugin ice wait"2" lucid
-zplugin load zdharma/history-search-multi-word
+zinit ice wait"2" lucid
+zinit load zdharma/history-search-multi-word
 
-zplugin ice wait"2" lucid blockf atpull'zplugin creinstall -q .'
-zplugin load zsh-users/zsh-completions
+zinit ice wait"2" lucid blockf atpull'zinit creinstall -q .'
+zinit load zsh-users/zsh-completions
 
 # wait0 cause usually this is the first thing I do after starting a terminal
-zplugin ice wait"0" lucid
-zplugin load "b4b4r07/enhancd"
-zplugin ice wait"1" lucid
-zplugin load "changyuheng/zsh-interactive-cd"
+zinit ice wait"0" lucid
+zinit load "b4b4r07/enhancd"
+zinit ice wait"1" lucid
+zinit load "changyuheng/zsh-interactive-cd"
 
 # LS Colors
-zplugin ice wait"2" lucid \
+zinit ice wait"2" lucid \
   atclone"dircolors -b LS_COLORS > ls_colors.zsh" \
   atpull"%atclone" pick"ls_colors.zsh"
-zplugin load trapd00r/LS_COLORS
+zinit load trapd00r/LS_COLORS
+
+# n
+zinit ice wait"2" lucid
+zinit load gretzky/n.zsh
+
+# Should be after loading the plugins
+# Bind UP and DOWN arrow keys for subsstring search.
+bindkey "\e[A" history-substring-search-up
+bindkey "\e[B" history-substring-search-down
+
+
 # -----------------------------------------------------------------------
 
+source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
