@@ -138,12 +138,12 @@ zinit ice wait"2" lucid \
 zinit load trapd00r/LS_COLORS
 
 # n
-zinit ice wait"2" lucid
-zinit load gretzky/n.zsh
+zinit ice wait"0" lucid
+zinit load "torifat/nnvm"
 
 # npm scripts
 zinit ice wait"2" lucid
-zinit load 'torifat/npms'
+zinit load "torifat/npms"
 
 # Should be after loading the plugins
 # Bind UP and DOWN arrow keys for subsstring search.
