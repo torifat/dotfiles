@@ -15,10 +15,13 @@
 	excludesfile = ~/.gitexcludes
 	attributesFile = ~/.gitattributes
 	ignorecase = false
+	pager = diff-so-fancy | less -FXRi
+	precomposeUnicode = true
+	# pager = delta
 [color]
 	ui = auto
 [push]
-	default = simple
+	default = current
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustexitcode = true
@@ -54,3 +57,15 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[pull]
+	rebase = true
+[commit]
+	template = ~/.stCommitMsg
+[delta]
+	plus-color = "#012800"
+	minus-color = "#340001"
+	syntax-theme = Monokai Extended
+[interactive]
+	diffFilter = delta --color-only
+[init]
+	defaultBranch = main

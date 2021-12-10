@@ -84,8 +84,8 @@ zinit ice wait"1" lucid
 zinit load "chriskempson/base16-shell"
 
 # diff-so-fancy
-zinit ice wait"2" lucid as"program" pick"bin/git-dsf"
-zinit load zdharma/zsh-diff-so-fancy
+zinit ice as"program" pick"bin/git-dsf"
+zinit light z-shell/zsh-diff-so-fancy
 
 # Emoji
 zinit ice wait"2" lucid
@@ -106,24 +106,22 @@ zinit load djui/alias-tips
 
 # Autosuggestions & fast-syntax-highlighting
 # -----------------------------------------------------------------------
-zinit ice wait"3" lucid atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
-zinit load zdharma/fast-syntax-highlighting
-
-# zsh-autosuggestions
-zinit ice wait"2" lucid atload"!_zsh_autosuggest_start"
-zinit load zsh-users/zsh-autosuggestions
-
-# zsh-zsh-history-substring-search
-zinit ice wait"1" lucid
-zinit load zsh-users/zsh-history-substring-search
-
-# zdharma/history-search-multi-word
-zstyle ":history-search-multi-word" page-size "11"
-zinit ice wait"2" lucid
-zinit load zdharma/history-search-multi-word
-
-zinit ice wait"2" lucid blockf atpull'zinit creinstall -q .'
-zinit load zsh-users/zsh-completions
+zinit wait lucid for \
+   atinit'
+      ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay;
+      zstyle ":history-search-multi-word" page-size "11";
+   ' \
+      z-shell/fast-syntax-highlighting \
+   blockf \
+      zsh-users/zsh-completions \
+   atload'!_zsh_autosuggest_start' \
+      zsh-users/zsh-autosuggestions \
+      z-shell/history-search-multi-word \
+   atload'
+      bindkey "^[[A" history-substring-search-up;
+      bindkey "^[[B" history-substring-search-down;
+   ' \
+        zsh-users/zsh-history-substring-search
 
 # wait0 cause usually this is the first thing I do after starting a terminal
 zinit ice wait"0" lucid
@@ -132,25 +130,17 @@ zinit ice wait"1" lucid
 zinit load "changyuheng/zsh-interactive-cd"
 
 # LS Colors
-zinit ice wait"2" lucid \
-  atclone"dircolors -b LS_COLORS > ls_colors.zsh" \
-  atpull"%atclone" pick"ls_colors.zsh"
-zinit load trapd00r/LS_COLORS
-
-# n
-zinit ice wait"0" lucid
-zinit load "torifat/nnvm"
+zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
+  atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+  atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+zinit light trapd00r/LS_COLORS
 
 # npm scripts
 zinit ice wait"2" lucid
 zinit load "torifat/npms"
 
-# Should be after loading the plugins
-# Bind UP and DOWN arrow keys for subsstring search.
-bindkey "\e[A" history-substring-search-up
-bindkey "\e[B" history-substring-search-down
-
-
 # -----------------------------------------------------------------------
 
 source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+eval "$(fnm env --use-on-cd)"

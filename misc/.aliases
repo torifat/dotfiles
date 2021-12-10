@@ -31,3 +31,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+
+# v8
+alias d8=~/dev/v8/out.gn/x64.optdebug/d8
+alias tick-processor=~/dev/v8/tools/mac-tick-processor
