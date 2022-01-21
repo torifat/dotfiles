@@ -1,8 +1,9 @@
 source "$HOME/.zinit/bin/zplugin.zsh"
+
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-export PS1=""
+# export PS1=""
 
 # Bind Keys
 # `cat -v` and type to get the codes
@@ -37,12 +38,8 @@ setopt hist_ignore_dups
 setopt hist_expire_dups_first
 # Remove extra blanks from each command line being added to history
 setopt hist_reduce_blanks
-# Record start and end time to history file
-setopt extended_history
 # Ignore the beginning space command to history file
 setopt hist_ignore_space
-# Append to history file
-setopt append_history
 # Edit history file during call history before executing
 setopt hist_verify
 # Enable history system like a Bash
@@ -64,21 +61,6 @@ zshaddhistory() {
 # Sane ZSH options
 # https://github.com/willghatch/zsh-saneopt/blob/master/saneopt.plugin.zsh
 zinit light willghatch/zsh-saneopt
-
-# Theme
-# -----------------------------------------------------------------------
-# zinit ice depth"1"
-# zpl light romkatv/zsh-defer
-
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-
-# After finishing the configuration wizard change the atload'' ice to:
-# -> atload"source ~/.p10k.zsh; _p9k_precmd"
-# Before install
-# <- atload"true; _p9k_precmd"
-zinit ice wait"!" lucid atload"source ~/.p10k.zsh; _p9k_precmd" nocd
-zinit load romkatv/powerlevel10k
-# -----------------------------------------------------------------------
 
 zinit ice wait"1" lucid
 zinit load "chriskempson/base16-shell"
@@ -141,6 +123,7 @@ zinit load "torifat/npms"
 
 # -----------------------------------------------------------------------
 
-source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
-
+eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
+
+# source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br

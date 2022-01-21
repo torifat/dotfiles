@@ -58,6 +58,8 @@ export PATH="$N_PREFIX/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$HOME/.yarn/bin:/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$PATH:/Users/rnabi/.kit/bin:/Users/rnabi/.kenv/bin"
 export PATH="$PATH:/Users/rnabi/dev/depot_tools"
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/rnabi/.secrets/gcloud-scriptkit.json"

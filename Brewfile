@@ -6,7 +6,8 @@ brew 'findutils'
 brew 'gnu-sed'
 brew 'wget'
 brew 'tmux'
-brew 'n'
+brew 'fnm'
+brew 'starship'
 
 # Install more recent versions of some macOS tools.
 brew 'vim'
@@ -94,6 +95,7 @@ cask 'hstracker'
 # Fonts
 tap 'homebrew/cask-fonts'
 cask 'font-fantasque-sans-mono'
+cask 'font-monofur-nerd-font'
 
 # AppStore
 mas 'Tweetbot', id: 557168941
