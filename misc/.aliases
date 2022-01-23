@@ -1,17 +1,18 @@
 # vim: set syntax=zsh:
-alias ls='ls -F --color=auto'
-alias l='ls -lh'
-alias la='ls -lha'
-alias ll='ls -lh'
+# alias ls='ls -F --color=auto'
+alias ls='exa'
+alias l='exa -l'
+alias la='exa -la'
+alias ll='exa -l'
+
+alias cat='bat'
 
 alias a='atom .'
 alias b='bolt'
-alias d='cd ~/dev/aux'
+alias c='cargo'
 alias k='k -h'
 alias o='open .'
 alias y='yarn'
-alias yd='~/Developments/yarn/bin/yarn'
-alias yui='yarn upgrade-interactive'
 
 alias cask='brew cask'
 

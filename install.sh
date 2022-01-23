@@ -30,6 +30,7 @@ if ! fgrep -q $(command -v zsh) /etc/shells; then
 fi;
 
 stow -v git misc zsh
+stow -v -t ~/.config config
 
 n latest
 

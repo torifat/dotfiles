@@ -1,0 +1,77 @@
+# don't print a new line at the start of the prompt
+add_newline = false
+
+format = "$directory$git_branch${custom.git_host}$git_status$fill${custom.git_email}$nodejs$rust\n$character"
+right_format = "$status$cmd_duration"
+
+[fill]
+symbol = " "
+
+[status]
+disabled = false
+style = "red"
+format = " [$symbol $common_meaning$signal_name$maybe_int]($style)"
+map_symbol = true
+
+[directory]
+style = "bright-blue"
+read_only = ""
+read_only_style = "bright-red"
+truncation_length = 4
+truncate_to_repo = true
+format = "[\ue5ff $path ]($style)([$read_only]($read_only_style))"
+
+[directory.substitutions]
+"~/dev/atlassian" = "\ufd02"
+
+[rust]
+# symbol = " "
+symbol = "🦀 " # alternate
+style = "#ce412b"
+format = " \ue621 [$symbol$version]($style)"
+
+[nodejs]
+symbol = " "
+style = "#66cc33"
+format = " \ue621 [$symbol$version]($style)"
+
+[cmd_duration]
+format = " [$duration]($style)"
+min_time = 500
+
+# ------ Git ------
+[git_branch]
+symbol = " "
+style = "#e35938"
+format = "\ue621[ $symbol$branch ]($style)"
+
+[git_status]
+style = "#e35938"
+
+[custom.git_email]
+symbol = " "
+style = "#e35938"
+command = "git config user.email"
+when = "git rev-parse --git-dir 2> /dev/null"
+format = "[ $symbol[$output](italic $style)]($style)"
+
+[custom.git_host]
+when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+command = """
+GIT_REMOTE=$(command git ls-remote --get-url 2> /dev/null)
+read -ra GIT_HOST <<< "$GIT_REMOTE"
+
+if [[ "$GIT_REMOTE" =~ "github" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then
+    GIT_REMOTE_SYMBOL="\\e[38;5;26m\uf5a7\\e[0m"
+elif [[ "$GIT_REMOTE" =~ "git" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+else
+    GIT_REMOTE_SYMBOL=""
+fi
+echo "$GIT_REMOTE_SYMBOL${GIT_HOST[2]}"
+"""
+format = "([at](italic) $output )"
