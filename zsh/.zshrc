@@ -1,3 +1,6 @@
+# Uncomment to profile ZSH
+# zmodload zsh/zprof
+
 source "$HOME/.zinit/bin/zplugin.zsh"
 
 autoload -Uz _zinit
@@ -127,3 +130,6 @@ eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
 
 # source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+# Uncomment to profile ZSH
+# zprof
