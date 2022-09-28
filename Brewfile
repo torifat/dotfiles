@@ -15,8 +15,11 @@ brew 'grep'
 brew 'less'
 brew 'openssh'
 
+# Other Essentials
+# Better ls
+brew 'exa'
+
 # Other useful stuff
-brew 'ngrep'
 brew 'ctags' # For vim Tagbar
 
 # I want to compile stuff too
@@ -25,7 +28,7 @@ brew 'autoconf'
 
 # ZSH related stuff
 brew 'zsh'
-brew 'zplug'
+brew 'zinit'
 brew 'zsh-completions'
 
 # Install other useful binaries.
@@ -43,13 +46,13 @@ brew 'tig'
 # Pipe Viewer
 brew 'pv'
 brew 'ssh-copy-id'
-brew 'unrar'
 # Banner-like program prints strings as ASCII art
 brew 'figlet'
 brew 'fzf'
 brew 'bat'
 brew 'ripgrep'
 brew 'exiftool'
+brew 'neofetch'
 # To connect/disconnect AirPods
 brew 'bluetoothconnector'
 
@@ -58,18 +61,16 @@ tap 'homebrew/cask'
 cask_args appdir: '/Applications'
 
 # cask 'slack'
-cask 'slack-beta'
 cask 'iterm2'
-cask 'hyper'
 cask '1password'
 # cask 'docker-beta'
 cask 'istat-menus'
 # cask 'little-snitch'
 cask 'spotify'
 cask 'sketch'
-# cask 'vlc'
+cask 'vlc'
 # cask 'paw'
-cask 'ngrok'
+# cask 'ngrok'
 # cask 'ksdiff'
 cask 'kap'
 cask 'sublime-merge'
@@ -85,7 +86,11 @@ cask 'visual-studio-code'
 # cask 'dripcap'
 # cask 'keepingyouawake' # or Amphetamine
 # Clean your keyboard like never before :P
-cask 'keyboard-cleaner'
+# cask 'keyboard-cleaner'
+cask 'keyboardcleantool'
+# Change icons
+cask 'pictogram'
+cask 'cleanmymac'
 
 # Games
 # cask 'steam'
@@ -96,6 +101,7 @@ cask 'hstracker'
 tap 'homebrew/cask-fonts'
 cask 'font-fantasque-sans-mono'
 cask 'font-monofur-nerd-font'
+cask 'font-recursive'
 
 # AppStore
 mas 'Tweetbot', id: 557168941
@@ -106,7 +112,7 @@ mas 'DaisyDisk', id: 411643860
 mas 'Amphetamine', id: 937984704 # Caffeine replacement
 
 # Window Management [Choose One]
-mas 'Divvy', id: 413857545
+# mas 'Divvy', id: 413857545
 # mas 'Magnet', id: 441258766
 # mas 'BetterSnapTool', id: 417375580
 # cask 'spectacle' # Free alternative

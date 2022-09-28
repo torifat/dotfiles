@@ -61,6 +61,7 @@
 	rebase = true
 [commit]
 	template = ~/.stCommitMsg
+	gpgsign = true
 [delta]
 	plus-style = syntax "#012800"
 	minus-style = normal "#340001"
@@ -69,3 +70,9 @@
 	diffFilter = delta --color-only
 [init]
 	defaultBranch = main
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[include]
+	path = ~/.gitconfig.local

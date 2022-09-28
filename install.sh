@@ -32,11 +32,6 @@ fi;
 stow -v git misc zsh
 stow -v -t ~/.config config
 
-n latest
-
-# Install yarn
-curl -o- -L https://yarnpkg.com/install.sh | bash
-
 # Fix autocomp permission
 chmod go-w '/usr/local/share'
 

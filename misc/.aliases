@@ -14,9 +14,9 @@ alias k='k -h'
 alias o='open .'
 alias y='yarn'
 
-alias cask='brew cask'
-
 function take () { mkdir -p $1 && cd $1 }
+
+function cask () { brew $1 --cask "${@:2}"}
 
 # Git
 alias g='git'

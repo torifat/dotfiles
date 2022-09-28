@@ -1,7 +1,8 @@
 # Uncomment to profile ZSH
 # zmodload zsh/zprof
 
-source "$HOME/.zinit/bin/zplugin.zsh"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+source $(brew --prefix)/opt/zinit/zinit.zsh
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
@@ -101,7 +102,7 @@ zinit wait lucid for \
       zsh-users/zsh-completions \
    atload'!_zsh_autosuggest_start' \
       zsh-users/zsh-autosuggestions \
-      z-shell/history-search-multi-word \
+      zdharma/history-search-multi-word \
    atload'
       bindkey "^[[A" history-substring-search-up;
       bindkey "^[[B" history-substring-search-down;
