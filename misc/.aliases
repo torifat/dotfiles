@@ -7,16 +7,15 @@ alias ll='exa -l'
 
 alias cat='bat'
 
-alias a='atom .'
-alias b='bolt'
 alias c='cargo'
+alias g='git'
 alias k='k -h'
 alias o='open .'
+alias p='pnpm'
+alias v='nvim'
 alias y='yarn'
 
 function take () { mkdir -p $1 && cd $1 }
-
-function cask () { brew $1 --cask "${@:2}"}
 
 # Git
 alias g='git'
@@ -32,7 +31,3 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-
-# v8
-alias d8=~/dev/v8/out.gn/x64.optdebug/d8
-alias tick-processor=~/dev/v8/tools/mac-tick-processor

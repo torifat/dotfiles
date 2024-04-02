@@ -10,7 +10,7 @@ export LC_CTYPE="${LANGUAGE}"
 export TERM=xterm-256color
 
 # Editor
-export EDITOR=vim
+export EDITOR=nvim
 export GIT_EDITOR="${EDITOR}"
 
 # Pager
@@ -28,10 +28,6 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[00;44;37m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
-
-# enhancd
-export ENHANCD_DISABLE_DOT=1
-export ENHANCD_DISABLE_HYPHEN=1
 
 # Cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -51,17 +47,24 @@ if [[ $UID == 0 ]]; then
     export SAVEHIST=0
 fi
 
-export N_PREFIX="$HOME/.node"
+# fnm
+export FNM_COREPACK_ENABLED=true
 export RUST_SRC_PATH=/usr/local/src/rust/src
 
-export PATH="$N_PREFIX/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$HOME/.yarn/bin:/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$PATH"
+# bun
+export BUN_INSTALL="$HOME/.bun"
+
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.yarn/bin:/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$HOME/.local/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="$HOME/Library/Python/3.9/bin:$PATH"
-export PATH="$PATH:$HOME/.kit/bin:$HOME/.kenv/bin"
 export PATH="$PATH:$HOME/dev/depot_tools"
+export PATH="$PATH:/opt/atlassian/bin"
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.secrets/gcloud-scriptkit.json"
 export SSH_AUTH_SOCK=~/.1password/agent.sock
+
+# pnpm
+export PNPM_HOME="/Users/rnabi/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

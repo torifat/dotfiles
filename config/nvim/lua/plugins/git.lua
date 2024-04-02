@@ -1,0 +1,6 @@
+return {
+  {
+    "NeogitOrg/neogit",
+    opts = {},
+  },
+}

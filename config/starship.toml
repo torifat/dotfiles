@@ -1,3 +1,5 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 # don't print a new line at the start of the prompt
 add_newline = false
 
@@ -22,7 +24,7 @@ truncate_to_repo = true
 format = "[\ue5ff $path ]($style)([$read_only]($read_only_style))"
 
 [directory.substitutions]
-"~/dev/atlassian" = "\ufd02"
+"~/dev/atlassian" = "󰠄"
 
 [rust]
 # symbol = " "
@@ -31,7 +33,7 @@ style = "#ce412b"
 format = " \ue621 [$symbol$version]($style)"
 
 [nodejs]
-symbol = " "
+symbol = "󰎙 "
 style = "#66cc33"
 format = " \ue621 [$symbol$version]($style)"
 
@@ -49,7 +51,7 @@ format = "\ue621[ $symbol$branch ]($style)"
 style = "#e35938"
 
 [custom.git_email]
-symbol = " "
+symbol = "󰊢 "
 style = "#e35938"
 command = "git config user.email"
 when = "git rev-parse --git-dir 2> /dev/null"
@@ -66,7 +68,7 @@ if [[ "$GIT_REMOTE" =~ "github" ]]; then
 elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
     GIT_REMOTE_SYMBOL=" "
 elif [[ "$GIT_REMOTE" =~ "bitbucket|stash" ]]; then
-    GIT_REMOTE_SYMBOL="\\e[38;5;26m\uf5a7\\e[0m"
+    GIT_REMOTE_SYMBOL="\\e[38;5;26m󰂨\\e[0m"
 elif [[ "$GIT_REMOTE" =~ "git" ]]; then
     GIT_REMOTE_SYMBOL=" "
 else

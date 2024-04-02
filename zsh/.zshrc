@@ -111,7 +111,6 @@ zinit wait lucid for \
 
 # wait0 cause usually this is the first thing I do after starting a terminal
 zinit ice wait"0" lucid
-zinit load "b4b4r07/enhancd"
 zinit ice wait"1" lucid
 zinit load "changyuheng/zsh-interactive-cd"
 
@@ -129,8 +128,15 @@ zinit load "torifat/npms"
 
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(pyenv init --path)"
 
 # source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
 # Uncomment to profile ZSH
 # zprof
+
+# bun completions
+[ -s "/Users/rnabi/.bun/_bun" ] && source "/Users/rnabi/.bun/_bun"
+
+source ~/.afm-git-configrc

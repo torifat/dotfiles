@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # -g is shorthand for NSGlobalDomain
 
 # Enable tap-clicking
