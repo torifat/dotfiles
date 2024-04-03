@@ -57,7 +57,7 @@ brew 'tldr'
 brew 'ffmpeg'
 brew 'mas'
 brew 'nmap'
-
+brew 'entr'
 brew 'shellcheck'
 brew 'zoxide'
 

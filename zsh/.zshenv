@@ -47,6 +47,8 @@ if [[ $UID == 0 ]]; then
     export SAVEHIST=0
 fi
 
+export LOCATE_PATH="~/.cache/locatedb"
+
 # fnm
 export FNM_COREPACK_ENABLED=true
 export RUST_SRC_PATH=/usr/local/src/rust/src
@@ -54,10 +56,10 @@ export RUST_SRC_PATH=/usr/local/src/rust/src
 # bun
 export BUN_INSTALL="$HOME/.bun"
 
+export PATH="/opt/homebrew/opt/findutils/libexec/gnubin::$PATH"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$HOME/.yarn/bin:/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$HOME/.local/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="$PATH:$HOME/dev/depot_tools"
 export PATH="$PATH:/opt/atlassian/bin"
 
