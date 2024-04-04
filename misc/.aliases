@@ -1,8 +1,8 @@
 # vim: set syntax=zsh
-alias ls='eza'
-alias l='eza -l'
-alias la='eza -la'
-alias ll='eza -l'
+alias ls='lsd'
+alias l='lsd -l'
+alias la='lsd -la'
+alias ll='lsd -l'
 
 alias cat='bat'
 

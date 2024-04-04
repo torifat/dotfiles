@@ -15,7 +15,7 @@ brew 'openssh'
 
 # Other Essentials
 # Better ls
-brew 'eza'
+brew 'lsd'
 brew 'btop'
 
 # Other useful stuff
