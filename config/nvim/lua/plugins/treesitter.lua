@@ -6,6 +6,7 @@ return {
         "css",
         "kdl",
         "styled",
+        "toml",
       },
     },
   },

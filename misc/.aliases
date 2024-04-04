@@ -1,9 +1,8 @@
-# vim: set syntax=zsh:
-# alias ls='ls -F --color=auto'
-alias ls='exa'
-alias l='exa -l'
-alias la='exa -la'
-alias ll='exa -l'
+# vim: set syntax=zsh
+alias ls='eza'
+alias l='eza -l'
+alias la='eza -la'
+alias ll='eza -l'
 
 alias cat='bat'
 

@@ -2,7 +2,7 @@
 # zmodload zsh/zprof
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-source $(brew --prefix)/opt/zinit/zinit.zsh
+source "$HOMEBREW_PREFIX/opt/zinit/zinit.zsh"
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
@@ -129,14 +129,13 @@ zinit load "torifat/npms"
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(fzf --zsh)"
 eval "$(pyenv init --path)"
-
-# source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
 # Uncomment to profile ZSH
 # zprof
 
 # bun completions
-[ -s "/Users/rnabi/.bun/_bun" ] && source "/Users/rnabi/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 source ~/.afm-git-configrc

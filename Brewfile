@@ -5,20 +5,17 @@ brew 'coreutils'
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew 'findutils'
 brew 'gnu-sed'
+brew 'gnu-tar'
 brew 'wget'
-brew 'tmux'
-brew 'fnm'
-brew 'starship'
-brew 'zoxide'
 
-# Install more recent versions of some macOS tools.
+# Install more recent versions of some macOS tools
 brew 'grep'
 brew 'less'
 brew 'openssh'
 
 # Other Essentials
 # Better ls
-brew 'exa'
+brew 'eza'
 brew 'btop'
 
 # Other useful stuff
@@ -27,6 +24,7 @@ brew 'ctags' # For vim Tagbar
 # I want to compile stuff too
 brew 'automake'
 brew 'autoconf'
+brew 'pkg-config'
 
 # ZSH related stuff
 brew 'zsh'
@@ -35,12 +33,24 @@ brew 'zsh-completions'
 
 # Install other useful binaries.
 brew 'ack'
+brew 'tmux'
+brew 'tpm'
+brew 'tmuxinator'
+brew 'tmuxinator-completion'
+brew 'zellij'
+brew 'fnm'
+brew 'starship'
 brew 'git'
+brew 'git-delta'
+brew 'git-lfs'
+brew 'lazygit'
 brew 'stow'
 brew 'tree'
 # brew 'imagemagick'
 brew 'jq'
+brew 'yq'
 brew 'asciinema'
+brew 'vhs'
 brew 'fortune'
 brew 'mtr'
 # Pipe Viewer
@@ -50,6 +60,7 @@ brew 'ssh-copy-id'
 brew 'figlet'
 brew 'fzf'
 brew 'bat'
+brew 'fd'
 brew 'ripgrep'
 brew 'exiftool'
 brew 'neofetch'
@@ -59,7 +70,9 @@ brew 'mas'
 brew 'nmap'
 brew 'entr'
 brew 'shellcheck'
+brew 'shfmt'
 brew 'zoxide'
+brew 'watchman'
 
 # GUI Apps
 cask_args appdir: '/Applications'
@@ -68,9 +81,11 @@ cask_args appdir: '/Applications'
 cask 'iterm2'
 cask '1password'
 cask '1password-cli'
+mas "1Password for Safari", id: 1569813296
 cask 'istat-menus'
 cask 'kap'
 cask 'finicky'
+cask 'wezterm'
 
 # Non-essential Apps
 cask 'keycastr'
@@ -82,14 +97,14 @@ cask 'cleanmymac'
 
 # Fonts
 tap 'homebrew/cask-fonts'
-cask 'font-monofur-nerd-font'
+cask 'font-monaspace'
+cask 'font-noto-color-emoji'
+cask 'font-symbols-only-nerd-font'
 
 # AppStore
 mas 'Kaleidoscope', id: 587512244
 mas 'DaisyDisk', id: 411643860
 mas 'Amphetamine', id: 937984704 # Caffeine replacement
-
-# Window Management [Choose One]
 
 mas 'parcel', id: 639968404
 mas 'Keynote', id: 409183694

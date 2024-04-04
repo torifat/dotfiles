@@ -47,7 +47,8 @@ if [[ $UID == 0 ]]; then
     export SAVEHIST=0
 fi
 
-export LOCATE_PATH="~/.cache/locatedb"
+export LOCATE_PATH='~/.cache/locatedb'
+export FZF_COMPLETION_TRIGGER=''
 
 # fnm
 export FNM_COREPACK_ENABLED=true
@@ -58,15 +59,14 @@ export BUN_INSTALL="$HOME/.bun"
 
 export PATH="/opt/homebrew/opt/findutils/libexec/gnubin::$PATH"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$HOME/.yarn/bin:/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="$PATH:$HOME/dev/depot_tools"
+export PATH="$HOME/.local/share/rtx/shims:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$PATH"
+export PATH="$PNPM_HOME:$PATH"
 export PATH="$PATH:/opt/atlassian/bin"
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export SSH_AUTH_SOCK=~/.1password/agent.sock
 
-# pnpm
-export PNPM_HOME="/Users/rnabi/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+export PNPM_HOME="$HOME/Library/pnpm"
