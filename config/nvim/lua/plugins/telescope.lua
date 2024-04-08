@@ -1,20 +1,66 @@
 return {
   {
-    "telescope.nvim",
+    "nvim-telescope/telescope.nvim",
     dependencies = {
-      "nvim-telescope/telescope-fzy-native.nvim",
-      build = "make",
+      "ibhagwan/fzf-lua",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
       config = function()
-        require("telescope").load_extension("fzy_native")
+        local function title(str, opts)
+          return vim.tbl_deep_extend("keep", opts or {}, {
+            prompt = "❯ ",
+            cwd_header = false,
+            winopts = {
+              title = { { " " .. str .. " ", "TelescopePromptTitle" } },
+              -- title = " " .. str .. " ",
+              title_pos = "center",
+            },
+          })
+        end
+        require("fzf-lua").setup({
+          "telescope",
+          winopts = {
+            border = { " ", " ", " ", "", "", "", "", "" },
+            preview = {
+              border = "noborder",
+              scrollbar = false,
+              -- scrolloff = "-2",
+              title_pos = "center",
+            },
+          },
+          fzf_opts = {
+            ["--layout"] = "reverse",
+            ["--info"] = "inline",
+            ["--border"] = "none",
+            ["--margin"] = "0",
+            ["--padding"] = "1,2",
+          },
+          hls = {
+            preview_title = "FzfPreviewTitle",
+          },
+          fzf_colors = {
+            ["info"] = { "fg", "FzfSubtleText" },
+            ["prompt"] = { "fg", "FzfSubtleText" },
+            ["header"] = { "fg", "FzfSubtleText" },
+          },
+          files = title("Find Files", {
+            fzf_opts = {
+              ["--ansi"] = false,
+              ["--info"] = false,
+            },
+            actions = {
+              -- ["ctrl-g"] = false,
+            },
+          }),
+          defaults = {
+            git_icons = false,
+            file_icons = false,
+            cwd_header = false,
+          },
+        })
       end,
     },
     opts = {
       defaults = {
-        file_sorter = require("telescope.sorters").get_fzy_sorter,
-        preview = {
-          filesize_limit = 0.1, -- MB
-          treesitter = false,
-        },
         -- From custom configurationk
         sorting_strategy = "ascending",
         layout_strategy = "flex",
@@ -26,15 +72,52 @@ return {
           height = 0.80,
         },
       },
-      extensions = {
-        fzy_native = {
-          override_generic_sorter = true,
-          override_file_sorter = true,
-        },
-      },
       highlight = {
         enable = false,
       },
+    },
+    keys = {
+      { "<leader>ff", "<cmd> FzfLua files<cr>", desc = "find files (root dir)" },
+      { "<leader>fF", "<cmd> lua require('fzf-lua').files({ cwd = vim.uv.cwd() })<cr>", desc = "find files (cwd)" },
+      { "<leader>sg", "<cmd> lua require('fzf-lua').live_grep_native({})<cr>", desc = "Grep (Root Dir)" },
+    },
+  },
+  {
+    "telescope.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+      opts = {
+        defaults = {
+          file_ignore_patterns = { "node_modules", ".git" },
+          vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--hidden",
+            "--glob=!.git/",
+          },
+          buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+          preview = {
+            treesitter = false, -- Disable treesitter for preview
+          },
+        },
+        extensions = {
+          fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+          },
+        },
+      },
+      config = function()
+        require("telescope").load_extension("fzf")
+      end,
     },
   },
 }

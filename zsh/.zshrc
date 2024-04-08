@@ -96,6 +96,7 @@ zinit wait lucid for \
    atinit'
       ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay;
       zstyle ":history-search-multi-word" page-size "11";
+      eval "$(op completion zsh)"; compdef _op op;
    ' \
       z-shell/fast-syntax-highlighting \
    blockf \
@@ -125,7 +126,6 @@ zinit ice wait"2" lucid
 zinit load "torifat/npms"
 
 # -----------------------------------------------------------------------
-
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
 eval "$(zoxide init --cmd cd zsh)"

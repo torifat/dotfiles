@@ -48,7 +48,9 @@ if [[ $UID == 0 ]]; then
 fi
 
 export LOCATE_PATH='~/.cache/locatedb'
+# fzf
 export FZF_COMPLETION_TRIGGER=''
+export FZF_DEFAULT_OPTS='--layout=reverse --info=inline-right'
 
 # fnm
 export FNM_COREPACK_ENABLED=true
