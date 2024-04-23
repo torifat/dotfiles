@@ -4,43 +4,6 @@ return {
     opts = {},
   },
   {
-    "lukas-reineke/headlines.nvim",
-    opts = {
-      markdown = {
-        fat_headlines = true,
-      },
-    },
-  },
-  {
-    "b0o/incline.nvim",
-    event = "BufReadPre",
-    keys = {
-      {
-        "<leader>uI",
-        function()
-          require("incline").toggle()
-        end,
-        desc = "Toggle Incline",
-      },
-    },
-    config = function()
-      require("incline").setup({
-        highlight = {
-          groups = {
-            InclineNormal = { default = true, group = "lualine_a_normal" },
-            InclineNormalNC = { default = true, group = "Comment" },
-          },
-        },
-        window = { margin = { vertical = 0, horizontal = 1 } },
-        render = function(props)
-          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-          local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-          return { { icon, guifg = color }, { icon and " " or "" }, { filename } }
-        end,
-      })
-    end,
-  },
-  {
     "folke/flash.nvim",
     enabled = true,
     ---@type Flash.Config
@@ -71,5 +34,36 @@ return {
       preview_height = 24,
     },
     cmd = "MurenToggle",
+  },
+  {
+    "folke/twilight.nvim",
+    opts = {},
+  },
+  {
+    "smjonas/inc-rename.nvim",
+    config = true,
+    keys = {
+      {
+        "<leader>rn",
+        function()
+          return ":IncRename " .. vim.fn.expand("<cword>")
+        end,
+        expr = true,
+        desc = "Rename",
+      },
+    },
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = { "hrsh7th/cmp-nvim-lua" },
+    ---@param opts cmp.ConfigSchema
+    opts = function(_, opts)
+      table.insert(opts.sources, { name = "nvim_lua" })
+    end,
+  },
+  {
+    "m4xshen/hardtime.nvim",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {},
   },
 }

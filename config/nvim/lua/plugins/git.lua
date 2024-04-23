@@ -2,6 +2,15 @@ return {
   {
     "NeogitOrg/neogit",
     opts = {},
+    keys = {
+      {
+        "<leader>gn",
+        function()
+          require("neogit").open()
+        end,
+        desc = "Neogit",
+      },
+    },
   },
   {
     "ThePrimeagen/git-worktree.nvim",
@@ -18,5 +27,12 @@ return {
         desc = "Switch Worktree",
       },
     },
+  },
+  "f-person/git-blame.nvim",
+  {
+    "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+    opts = {},
+    keys = { { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "DiffView" } },
   },
 }

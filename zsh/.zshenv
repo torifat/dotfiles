@@ -49,7 +49,7 @@ fi
 
 export LOCATE_PATH='~/.cache/locatedb'
 # fzf
-export FZF_COMPLETION_TRIGGER=''
+export FZF_COMPLETION_TRIGGER='-'
 export FZF_DEFAULT_OPTS='--layout=reverse --info=inline-right'
 
 # fnm
@@ -58,6 +58,9 @@ export RUST_SRC_PATH=/usr/local/src/rust/src
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
+
+# k8s
+export KUBECONFIG="$HOME/.kube/config"
 
 export PATH="/opt/homebrew/opt/findutils/libexec/gnubin::$PATH"
 export PATH="$BUN_INSTALL/bin:$PATH"

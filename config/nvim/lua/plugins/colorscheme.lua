@@ -69,20 +69,15 @@ return {
         },
       },
       integrations = {
+        dropbar = { enabled = true, color_mode = true },
         fidget = true,
-        indent_blankline = {
-          enabled = true,
-          colored_indent_levels = true,
-        },
-        telescope = {
-          enabled = true,
-          style = "nvchad",
-        },
+        harpoon = true,
+        indent_blankline = { enabled = true, colored_indent_levels = true },
+        mason = true,
+        noice = true,
+        telescope = { enabled = true, style = "nvchad" },
         lsp_trouble = true,
-        dropbar = {
-          enabled = true,
-          color_mode = true,
-        },
+        which_key = true,
       },
     },
   },

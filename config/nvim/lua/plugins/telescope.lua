@@ -33,6 +33,7 @@ return {
             ["--border"] = "none",
             ["--margin"] = "0",
             ["--padding"] = "1,2",
+            ["--header"] = "Hello",
           },
           hls = {
             preview_title = "FzfPreviewTitle",
@@ -46,9 +47,13 @@ return {
             fzf_opts = {
               ["--ansi"] = false,
               ["--info"] = false,
+              ["--header"] = false,
             },
             actions = {
-              -- ["ctrl-g"] = false,
+              ["default"] = require("fzf-lua").actions.file_edit,
+              ["ctrl-y"] = function(selected, opts)
+                require("fzf-lua").actions.file_edit(selected, opts)
+              end,
             },
           }),
           defaults = {
@@ -61,7 +66,7 @@ return {
     },
     opts = {
       defaults = {
-        -- From custom configurationk
+        -- From custom configuration
         sorting_strategy = "ascending",
         layout_strategy = "flex",
         layout_config = {
