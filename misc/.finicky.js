@@ -13,10 +13,7 @@ module.exports = {
   handlers: [
     {
       // Open work related websites in my default work profile
-      match: [
-        "bitbucket.org/atlassian/*",
-        "*.atlassian.net/*"
-      ],
+      match: ["bitbucket.org/atlassian/*", "*.atlassian.net/*"],
       browser: {
         name: "Google Chrome",
         // Work profile
@@ -24,12 +21,8 @@ module.exports = {
       },
     },
     {
-      match: [
-        "twitter.com/*",
-        "amazon.com.au/*",
-        "amzn.asia/*",
-      ],
-      browser: "Safari"
-    }
-  ]
-}
+      match: ["twitter.com/*", "*.amazon.com.au/*", "amzn.asia/*"],
+      browser: "Safari",
+    },
+  ],
+};
