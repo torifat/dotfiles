@@ -1,57 +1,59 @@
 # Uncomment to profile ZSH
 # zmodload zsh/zprof
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
-source "$HOMEBREW_PREFIX/opt/zinit/zinit.zsh"
 
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+# Install zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit"
 
-# export PS1=""
+if [ ! -d "$ZINIT_HOME" ]; then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone --filter=blob:none https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
 
-# Bind Keys
-# `cat -v` and type to get the codes
-bindkey -d
-bindkey "\e[H" beginning-of-line # Fn+Left
-bindkey "\e[F" end-of-line # Fn+Right
-bindkey "\e\e[C" forward-word # Option+Right
-bindkey "\e\e[D" backward-word # Option+Left
-bindkey $terminfo[kcbt] reverse-menu-complete # Shift+Tab
-bindkey $terminfo[kdch1] delete-char # Del
+source "${ZINIT_HOME}/zinit.zsh"
 
-# Automatically enter directories without cd
-setopt auto_cd
+# Setup Theme
+zi ice filter=blob:none
+zi light romkatv/powerlevel10k
 
-# No Beep
-setopt no_beep
-setopt no_list_beep
-setopt no_hist_beep
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Expand '=command' as path of command
-# e.g.) '=ls' -> '/bin/ls'
-setopt equals
+# Autosuggestions & fast-syntax-highlighting
+# -----------------------------------------------------------------------
+zi wait lucid for \
+   atinit'
+      ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay;
+      zstyle ":history-search-multi-word" page-size "11";
+   ' \
+      z-shell/F-Sy-H \
+   blockf \
+      zsh-users/zsh-completions \
+   atload'!_zsh_autosuggest_start' \
+      zsh-users/zsh-autosuggestions \
+      z-shell/H-S-MW \
+   atload'
+      bindkey "^[[A" history-substring-search-up;
+      bindkey "^[[B" history-substring-search-down;
+   ' \
+        zsh-users/zsh-history-substring-search
 
-## History
-# Share history
-setopt share_history
-# Add comamnds as they are typed, don't wait until shell exit
-# setopt inc_append_history
-# Do not write events to history that are duplicates of previous events
-setopt hist_ignore_dups
-# When trimming history, lose oldest duplicates first
-setopt hist_expire_dups_first
-# Remove extra blanks from each command line being added to history
-setopt hist_reduce_blanks
-# Ignore the beginning space command to history file
-setopt hist_ignore_space
-# Edit history file during call history before executing
-setopt hist_verify
-# Enable history system like a Bash
-setopt bang_hist
+zi wait"2" lucid for \
+  Aloxaf/fzf-tab
 
-# Don't add wrong commands to history
-zshaddhistory() {
-	whence ${${(z)1}[1]} >| /dev/null || return 1 }
+# LS Colors
+zi ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
+  atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+  atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+zi light trapd00r/LS_COLORS
 
 # Aliases
 [ -f ~/.aliases ] && source ~/.aliases
@@ -59,83 +61,15 @@ zshaddhistory() {
 # Private Stuff ;)
 [ -f ~/.secret ] && source ~/.secret
 
-# Exit if called from vim
-[[ -n $VIMRUNTIME ]] && return
-
-# Sane ZSH options
-# https://github.com/willghatch/zsh-saneopt/blob/master/saneopt.plugin.zsh
-zinit light willghatch/zsh-saneopt
-
-zinit ice wait"1" lucid
-zinit load "chriskempson/base16-shell"
-
-# diff-so-fancy
-zinit ice as"program" pick"bin/git-dsf"
-zinit light z-shell/zsh-diff-so-fancy
-
-# Emoji
-zinit ice wait"2" lucid
-zinit load 'wfxr/emoji-cli'
-
-# forgit
-zinit ice wait"2" lucid
-zinit load 'wfxr/forgit'
-
-# zsh-autopair
-zinit ice wait"2" lucid
-zinit load hlissner/zsh-autopair
-
-# Tips
-zinit ice wait"2" lucid
-zinit load djui/alias-tips
-# zinit load molovo/tipz
-
-# Autosuggestions & fast-syntax-highlighting
-# -----------------------------------------------------------------------
-zinit wait lucid for \
-   atinit'
-      ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay;
-      zstyle ":history-search-multi-word" page-size "11";
-      eval "$(op completion zsh)"; compdef _op op;
-   ' \
-      z-shell/fast-syntax-highlighting \
-   blockf \
-      zsh-users/zsh-completions \
-   atload'!_zsh_autosuggest_start' \
-      zsh-users/zsh-autosuggestions \
-      zdharma/history-search-multi-word \
-   atload'
-      bindkey "^[[A" history-substring-search-up;
-      bindkey "^[[B" history-substring-search-down;
-   ' \
-        zsh-users/zsh-history-substring-search
-
-# wait0 cause usually this is the first thing I do after starting a terminal
-zinit ice wait"0" lucid
-zinit ice wait"1" lucid
-zinit load "changyuheng/zsh-interactive-cd"
-
-# LS Colors
-zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
-  atpull'%atclone' pick"clrs.zsh" nocompile'!' \
-  atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
-zinit light trapd00r/LS_COLORS
-
-# npm scripts
-zinit ice wait"2" lucid
-zinit load "torifat/npms"
-
-# -----------------------------------------------------------------------
-eval "$(starship init zsh)"
+# Load Shell Integrations
 eval "$(fnm env --use-on-cd)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(fzf --zsh)"
-eval "$(pyenv init --path)"
+#eval "$(fzf --zsh)"
+eval "$(atuin init zsh)"
+
+source ~/.afm-git-configrc
 
 # Uncomment to profile ZSH
 # zprof
 
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-source ~/.afm-git-configrc
+# vim: ft=zsh sw=2 ts=2 et
