@@ -21,7 +21,7 @@ module.exports = {
       },
     },
     {
-      match: ["twitter.com/*", "*.amazon.com.au/*", "amzn.asia/*"],
+      match: ["twitter.com/*", "*.amazon.com.au/*", "amzn.asia/*", "*.templeandwebster.com.au/*", "*.carpetcall.com.au/*"],
       browser: "Safari",
     },
   ],

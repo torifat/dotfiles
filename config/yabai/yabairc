@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+padding_size=0
+external_bar_size=30
+
+config=(
+  layout bsp
+  window_gap "$padding_size"
+  top_padding "$padding_size"
+  right_padding "$padding_size"
+  bottom_padding "$padding_size"
+  left_padding "$padding_size"
+  external_bar "all:$external_bar_size:$padding_size"
+)
+
+yabai -m config "${config[@]}"
+
+# Don't manage Apple non-resizable apps
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
+
+yabai -m rule --add app="^Cisco Secure Client$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^Kap$" manage=off
+yabai -m rule --add app="^ChatGPT$" manage=off
+yabai -m rule --add app="^DaisyDisk$" manage=off
+yabai -m rule --add app="^zoom\.us$" manage=off
+# yabai -m rule --add app="^IntelliJ IDEA$" manage=off
+# yabai -m rule --add app="^JetBrains Toolbox$" manage=off
+yabai -m rule --add app="^Google Chrome$" title="coreautha" manage=off
+yabai -m rule --add app="^Google Chrome$" title="^Activate Touch ID*" manage=off
+yabai -m rule --add app="^1Password$" title="^Settings$" manage=off
+# yabai -m rule --add app="^1Password$" title="^Settings$" manage=off
+yabai -m rule --add app="^Finder$" title="^Bin$" manage=off
+
+# show digital colour meter topmost and on all spaces
+yabai -m rule --add app="^Digital Colou?r Meter$" sticky=on
+
+echo "yabai configuration loaded.."

@@ -48,13 +48,14 @@ if [[ $UID == 0 ]]; then
 fi
 
 export LOCATE_PATH='~/.cache/locatedb'
+
 # fzf
 export FZF_COMPLETION_TRIGGER='-'
 export FZF_DEFAULT_OPTS='--layout=reverse --info=inline-right'
 
 # fnm
 export FNM_COREPACK_ENABLED=true
-export RUST_SRC_PATH=/usr/local/src/rust/src
+export FNM_VERSION_FILE_STRATEGY="recursive"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -62,7 +63,8 @@ export BUN_INSTALL="$HOME/.bun"
 # k8s
 export KUBECONFIG="$HOME/.kube/config"
 
-export PATH="/opt/homebrew/opt/findutils/libexec/gnubin::$PATH"
+export RUST_SRC_PATH=/usr/local/src/rust/src
+export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

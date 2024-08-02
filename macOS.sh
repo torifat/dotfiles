@@ -7,8 +7,14 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write -g com.apple.mouse.tapBehavior -int 1
 defaults write -g com.apple.mouse.tapBehavior -int 1
 
+# Enable three finger drag
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool "true"
+
+# Disable automatic Spaces rearrangement
+defaults write com.apple.dock "mru-spaces" -bool false
+
 # Enable subpixel font rendering on non-Apple LCDs
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
+defaults write -g AppleFontSmoothing -int 2
 
 ## General UI/UX
 # Expand save panel by default
@@ -28,7 +34,6 @@ defaults write com.apple.screencapture location ~/Pictures/Screenshots
 
 killall SystemUIServer
 
-
 ## Finder
 
 # Use list view in all Finder windows by default
@@ -46,7 +51,6 @@ chflags nohidden ~/Library
 
 killall Finder
 
-
 ## Dock
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock magnification -bool true
@@ -56,7 +60,6 @@ defaults write com.apple.dock tilesize -int 48
 # defaults write com.apple.dock persistent-others -array-add '{ tile-data={ arrangement=2; file-data={ _CFURLString="file:///Users/rnabi/Pictures/Screenshots/"; _CFURLStringType= 15; }; file-label="Screenshots"; file-type=2; preferreditemsize=-1; showas=1; }; tile-type="directory-tile"; }'
 
 killall Dock
-
 
 ## iStat Menus
 # 1 - CPU & GPU, 2 - Memory, 3 - Disks, 4 - Network, 5 - Sensors, 6 - Battery, 7 - Time

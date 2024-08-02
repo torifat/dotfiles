@@ -106,7 +106,7 @@ return {
             "--hidden",
             "--glob=!.git/",
           },
-          buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+          -- buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
           preview = {
             treesitter = false, -- Disable treesitter for preview
           },

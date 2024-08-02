@@ -27,6 +27,16 @@ zi light romkatv/powerlevel10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Bind Keys
+# `cat -v` and type to get the codes
+bindkey -d # Disable default keybindings
+bindkey "\e[H" beginning-of-line # Fn+Left
+bindkey "\e[F" end-of-line # Fn+Right
+bindkey "\e\e[C" forward-word # Option+Right
+bindkey "\e\e[D" backward-word # Option+Left
+bindkey $terminfo[kcbt] reverse-menu-complete # Shift+Tab
+bindkey $terminfo[kdch1] delete-char # Del = Fn+Backspace
+
 # Autosuggestions & fast-syntax-highlighting
 # -----------------------------------------------------------------------
 zi wait lucid for \
@@ -46,8 +56,8 @@ zi wait lucid for \
    ' \
         zsh-users/zsh-history-substring-search
 
-zi wait"2" lucid for \
-  Aloxaf/fzf-tab
+# zi wait"2" lucid for \
+#   Aloxaf/fzf-tab
 
 # LS Colors
 zi ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
